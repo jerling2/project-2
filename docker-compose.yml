@@ -1,0 +1,29 @@
+# Author: Joseph
+# Brief: The docker-compose file contains the instructions that docker
+#        uses to build and run images
+# Usage: 
+#     >> cd /path/to/this/directory
+#     (be inside the directory that contains this file)
+#
+#     >> docker-compose build
+#     (build the docker image)
+#
+#     >> docker-compose up -d 
+#     (run the docker container in *detached* mode)
+# 
+#     >> docker logs -f django_container
+#     (follow the container's logs)
+
+version: 3.8.3  # version of docker-compose
+services:
+  app:
+    build:  # where the dockerfile is located, and the dockerfile's name
+      context: . 
+      dockerfile: Dockerfile
+    volumes:  # This directory (volume) will be shared by the container
+      - .:/django  # host/path:container/path
+    ports:
+      - 8000:8000  # Link port 8000 on the host with port 8000 on the container
+    image: app:django  # The name of the image
+    container_name: django_container
+    command: python3 manage.py runserver 0.0.0.0:8000  # Run on start
