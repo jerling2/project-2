@@ -6,11 +6,11 @@ To set up the project, please follow these steps:
 1. **Docker:** First, ensure that you have Docker installed on your system. You can download Docker from [here](https://www.docker.com/).
 2. **Clone the Repository:** Clone this repository to your local machine.
 3. **Navigate to the Project Directory:** Change your working directory to the location where you cloned the repository
-4. **Build Docker Containers:** 
+4. **Build Docker Image:** Build the docker image by running this command:
 ```shell 
 docker-compose build
 ```
-5. **Launch the Application:** Start the Docker containers and launch the application with the following command: 
+5. **Run the Docker Container:** Run the Docker container and launch the application with the following command: 
 ``` shell
 docker-compose up -d
 ```
