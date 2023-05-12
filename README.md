@@ -14,7 +14,15 @@ docker-compose build
 ``` shell
 docker-compose up -d
 ```
-6. **Access the Application:** You can access the application by opening a web browser and navigating to http://127.0.0.1:8000.
+
+6. **View Logs**: Follow the logs of the container by running this command:
+``` shell
+docker logs -f django_container
+```
+
+7. **Access the Application:** You can access the application by opening a web browser and navigating to http://127.0.0.1:8000.
+
+8. **Program!** You can program on your local machine and see the server update in real time :)
 
 *ChatGPT co-authored this readme document.*
 
