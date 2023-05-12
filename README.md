@@ -24,5 +24,9 @@ docker logs -f django_container
 
 8. **Program!** You can program on your local machine and see the server update in real time :)
 
+**BUG:** the standard home page is not found. Fix this by removing the path('test/, foobar) in the project.urls.
+
+*(Go to http://127.0.0.1:8000/test to see a proof-of-concept API's GET request)*
+
 *ChatGPT co-authored this readme document.*
 
