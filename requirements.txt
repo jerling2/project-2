@@ -1,0 +1,7 @@
+# Brief: All dependencies / pip3 installs should be defined in this file.
+#        The dockerfile uses this to build the docker image.
+# 
+# Format: package-name==version
+
+django==4.2.1
+requests==2.30.0
