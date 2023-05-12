@@ -10,7 +10,7 @@ To set up the project, please follow these steps:
 ```shell 
 docker-compose build
 ```
-5. **Run the Docker Container:** Run the Docker container and launch the application with the following command: 
+5. **Run the Docker Container:** Run the docker container and launch the application with the following command: 
 ``` shell
 docker-compose up -d
 ```
