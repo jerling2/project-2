@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <title>Foo Bar</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'header-bar.css' %}">
+  </head>
+  <body>
+    <header>
+      <ul>
+        <!-- Placeholder links for now -->
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'schedulebuilder' %}">Schedule Builder</a></li>
+        <li><a href="{% url 'professors' %}">Professors</a></li>
+        <li><a href="{% url 'courses' %}">Courses</a></li>
+        <li><a href="{% url 'degreereqs' %}">Degree Requirements</a></li>
+      </ul>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
+
+  
+</html>
