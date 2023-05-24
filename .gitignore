@@ -176,3 +176,6 @@ project-2/__pycache__/
 
 .DS_Store
 
+
+# Visual Studio Code
+.vs/
