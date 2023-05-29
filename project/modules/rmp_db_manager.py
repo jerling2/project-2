@@ -8,7 +8,7 @@ be added to our database. We can add names that match the RMP names to ensure pr
 should be run on the nightly reset to update our data.
 """
 
-conn = sqlite3.connect("../db.sqlite3")
+conn = sqlite3.connect("../../db.sqlite3")
 cur = conn.cursor()
 
 try:
@@ -50,6 +50,3 @@ except:
         cur.execute("SELECT * FROM professors")
         data = cur.fetchall()
         print(data)
-
-        
-
