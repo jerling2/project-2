@@ -2,7 +2,6 @@ import ratemyprofessor
 
 """
 Using Rate My professor API to get University of Oregon professor data for website.
-RMP module has been adjusted slightly to work up to date.
 Rate My Professor API used: https://github.com/Nobelz/RateMyProfessorAPI/blob/master/ratemyprofessor/professor.py
 """
 
