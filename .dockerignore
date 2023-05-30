@@ -1,0 +1,2 @@
+# Ignores the local environment for hosting db
+.env
