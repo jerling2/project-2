@@ -1,5 +1,5 @@
 import sqlite3
-import sys
+import os
 from RMPUser import create_dict_profs
 """
 This manager can be used to modify our db.sqlite3 database. It creates a table called professors and then
@@ -7,8 +7,21 @@ appends some data acquired from Rate My Professors. The list prof_names determin
 be added to our database. We can add names that match the RMP names to ensure proper retrieval of data. This
 should be run on the nightly reset to update our data.
 """
+# Get the absolute path of the current file
+current_file_path = os.path.abspath(__file__)
 
-conn = sqlite3.connect("./db.sqlite3")
+# Get the directory containing the current file
+current_directory = os.path.dirname(current_file_path)
+
+# Navigate two directories up
+two_directories_up = os.path.abspath(os.path.join(current_directory, "../../"))
+
+# Construct the relative path to the database file
+database_path = os.path.join(two_directories_up, "db.sqlite3")
+
+# Connect to the database using the relative path
+conn = sqlite3.connect(database_path)
+
 cur = conn.cursor()
 
 try:
