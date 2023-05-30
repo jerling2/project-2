@@ -1,20 +1,21 @@
-import ratemyprofessor
+from RateMyProfessorAPI.ratemyprofessor.main import get_school_by_name, get_professor_by_school_and_name
 
 """
 Using Rate My professor API to get University of Oregon professor data for website.
 Rate My Professor API used: https://github.com/Nobelz/RateMyProfessorAPI/blob/master/ratemyprofessor/professor.py
 """
 
-school = ratemyprofessor.get_school_by_name("University of Oregon")
+school = get_school_by_name("University of Oregon")
 
 if school is None:
     print("School Failure!")
     exit(0)
 
 def create_dict_profs(prof_names: list):
+    
     professors = []
     for prof in prof_names:
-        professors.append(ratemyprofessor.get_professor_by_school_and_name(school, prof))
+        professors.append(get_professor_by_school_and_name(school, prof))
 
     prof_dic = {}
 
