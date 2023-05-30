@@ -3,4 +3,14 @@
 
 {% block content %}
   <h1>Professors Page</h1>
+  <!-- This script establishes a WebSocket connection-->
+  <script type="text/javascript">
+    let url = 'ws://localhost:8000/ws/socket-server/'
+    const chatSocket = new WebSocket(url)
+
+    chatSocket.onmessge = function(e){
+        let data = JSON.parse(e.data)
+        console.log('Data:', data)
+    }
+  </script>
 {% endblock %}
