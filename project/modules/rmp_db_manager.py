@@ -8,7 +8,7 @@ be added to our database. We can add names that match the RMP names to ensure pr
 should be run on the nightly reset to update our data.
 """
 
-conn = sqlite3.connect("../db.sqlite3")
+conn = sqlite3.connect("./db.sqlite3")
 cur = conn.cursor()
 
 try:
@@ -46,6 +46,9 @@ except:
 
         cur.execute('DELETE FROM professors WHERE rowid NOT IN (SELECT min(rowid) FROM professors GROUP BY name)')
         conn.commit()
+
+        #cur.execute('DELETE FROM professors WHERE name="Randy Harris"')
+        #conn.commit()
 
         cur.execute("SELECT * FROM professors")
         data = cur.fetchall()
