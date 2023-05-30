@@ -1,0 +1,226 @@
+h1 {
+  text-align: center;
+}
+
+h2 {
+  font-size: min(max(14px, 1.2vw), 24px);
+  background-color: rgb(224, 224, 224);
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 11;
+}
+
+svg {
+  z-index: 10;
+}
+
+.flowchart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+}
+
+.flowchart-horizontal {
+  width: 33.854vw;
+  background-color: rgb(224, 224, 224);
+  color: black;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.sequence-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.sequence-title {
+  text-align: center;
+}
+
+.column-text {
+  justify-content: center;
+}
+
+.node {
+  width: 7.813vw;
+  height: 6.481vh;
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: min(max(10px, 1.146vw), 20px);
+  transition: background-color 0.3s ease;
+  z-index: 12;
+}
+
+.node:hover {
+  background-color: rgb(109, 177, 197);
+  cursor: pointer;
+}
+
+.flowchart-vertical-split {
+  height: 9.259vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flowchart-columns {
+  display: flex;
+  justify-content: center;
+}
+
+.flowchart-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* CS Courses */
+
+#cs-210-arrow, #cs-211-arrow {
+  width: 2.60417vw;
+  height: 6.48148vh;
+}
+
+#cs-212-split {
+  width: 41.667vw;
+}
+
+#cs-212-split-svg {
+  width: 41.66667vw;
+  height: 19.16667vh;
+}
+
+#cs-313-split {
+  width: 15.625vw;
+}
+
+#cs-313-split-svg {
+  width: 15.625vw;
+  height: 9.25926vh;
+}
+
+#column-314 {
+  width: 21.042vw;
+}
+
+#column-315 {
+  margin-right: 2.604vw;
+}
+
+#cs-315-arrow, #cs-314-arrow, #cs-330-arrow,
+#math-251-arrow, #math-246-arrow, #math-261-arrow {
+  width: 7.8125vw;
+  height: 4.62963vh;
+}
+
+#column-422 {
+  margin-left: 2.604vw;
+}
+
+/* Math Courses */
+
+#math-112-split-svg {
+  width: 83.333vw;
+  height: 23.148vh;
+}
+
+#math-231-arrow {
+  width: 7.8125vw;
+  height: 4.62963vh;
+}
+
+#low-div-math {
+  margin-left: 4.167vw;
+}
+
+#core-math {
+  margin-left: 15.625vw;
+}
+
+#core-math-split {
+  width: 41.667vw;
+  margin-left: 7.813vw;
+}
+
+#core-math-split-svg {
+  width: 41.66667vw;
+  height: 23.14815vh;
+}
+
+#upper-div-math {
+  width: 41.667vw;
+  margin-left: 5.208vw;
+}
+
+#upper-div-math-or {
+  position:absolute;
+  width:19.271vw;
+  height:8.333vh;
+  z-index:5;
+  margin-top:-0.926vh;
+  margin-right:-10.677vw;
+  background-color:#f2f2ff;
+}
+
+#column-343 {
+  border-radius: 10px;
+  border: 1px;
+  border-style: solid;
+  background-color: #f2f2ff;
+  padding: 0.417vw;
+  margin-right: 1.042vw;
+}
+
+#math-343-or {
+  font-size: min(max(10px, 1.2vw), 18px);
+}
+
+#column-341 {
+  margin-right: 1.042vw;
+}
+
+#math-341-arrow, #math-263-arrow {
+  width: 7.8125vw;
+  height: 6.94444vh;
+}
+
+#column-253 {
+  position: relative;
+  margin-right: 2.604vw;
+}
+
+#math-253 {
+  margin-bottom: 7vh;
+}
+
+#math-253-split {
+  position:absolute;
+  width: 21.35417vw;
+  height: 18.51852vh;
+  z-index:10;
+}
+
+/* Writing Courses */
+
+#writing {
+  margin-top: 4.630vh;
+  width: 20.833vw;
+}
+
+#writing-or {
+  margin:0.729vw;
+}
