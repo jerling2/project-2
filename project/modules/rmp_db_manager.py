@@ -1,6 +1,7 @@
 import sqlite3
 import sys
 from RMPUser import create_dict_profs
+
 """
 This manager can be used to modify our db.sqlite3 database. It creates a table called professors and then
 appends some data acquired from Rate My Professors. The list prof_names determines the professors that will
@@ -16,7 +17,6 @@ try:
         cur.execute('CREATE TABLE professors (name TEXT, difficulty INTEGER, rating INTEGER,\
             numRatings INTEGER, department TEXT, wouldTakeAgainPercent INT)')
 except:
-
         prof_names = ["Hank Childs", "Zena Ariola", "Jee Choi", "Phil Colbert", "Dejing Dou", "Brittany Erickson"]
         new_prof_names = []
 
@@ -31,16 +31,17 @@ except:
                 #Otherwise append the name that needs to be added to table
                 else:
                         new_prof_names.append(prof)
-        
+
         prof_dict = {}
 
         if len(new_prof_names) != 0:
                 prof_dict = create_dict_profs(new_prof_names)
 
+
         for prof in prof_dict:
                 #Add the information to the table for this professor
                 cur.execute('INSERT INTO professors (name, difficulty, rating, numRatings, department, wouldTakeAgainPercent) VALUES (?, ?, ?, ?, ?, ?)', (prof, prof_dict[prof]["difficulty"], \
-                prof_dict[prof]["rating"], prof_dict[prof]["numRatings"], prof_dict[prof]["department"], prof_dict[prof]["wouldTakeAgainPercent"] \
+                prof_dict[prof]["rating"], prof_dict[prof]["numRatings"], prof_dict[prof]["department"], prof_dict[prof]["wouldTakeAgainPercent"]
                 ))
                 conn.commit()
 
@@ -53,6 +54,3 @@ except:
         cur.execute("SELECT * FROM professors")
         data = cur.fetchall()
         print(data)
-
-        
-
