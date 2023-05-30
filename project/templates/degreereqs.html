@@ -1,6 +1,278 @@
+<!--TODO: Add links to courses-->
+
 <!DOCTYPE html>
 {% extends 'base.html' %}
+{% load static %}
+
+<!-- CSS -->
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'degreereqs.css' %}">
+{% endblock %}
 
 {% block content %}
-  <h1>Degree Requirements Page</h1>
+<h1>Degree Requirements Flowchart</h1>
+<div class="flowchart">
+  <div class="node" id="math-112" onclick="location.href=`{% url 'courses' %}`">Math 112</div>
+  <div class="flowchart-vertical-split" id="math-112-split">
+    <svg id="math-112-split-svg" xmlns="http://www.w3.org/2000/svg"> <!-- Increase the height here -->
+      <defs>
+        <marker id="arrowhead" markerWidth="5%" markerHeight="5%" refX="0" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" />
+        </marker>
+      </defs>
+      <line x1="50%" y1="30%" x2="50%" y2="50%" stroke="black" /> <!-- Down -->
+      <line x1="50%" y1="50%" x2="0.3125%" y2="50%" stroke="black" /> <!-- Left -->
+      <line x1="50%" y1="50%" x2="98.75%" y2="50%" stroke="black" /> <!-- Right -->
+      <line x1="0.3125%" y1="50%" x2="0.3125%" y2="94%" stroke="black" marker-end="url(#arrowhead)" /> <!-- Down Arrow 1 -->
+      <line x1="43.125%" y1="50%" x2="43.125%" y2="66%" stroke="black" marker-end="url(#arrowhead)" /> <!-- Down Arrow 2 -->
+      <line x1="75.3125%" y1="50%" x2="75.3125%" y2="94%" stroke="black" marker-end="url(#arrowhead)" /> <!-- Down Arrow 3 -->
+      <line x1="98.75%" y1="50%" x2="98.75%" y2="94%" stroke="black" marker-end="url(#arrowhead)" /> <!-- Down Arrow 4 -->
+    </svg>
+  </div>
+
+  <div class="flowchart-columns">
+    <!-- Low Div CS/Math Reqs & Core CS Reqs-->
+    <div class="flowchart-column">
+      <div class="flowchart-columns">
+        <div class="flowchart-column">
+          <div class="flowchart-horizontal" id="IntroCS">
+            <h2 class="sequence-title">Intro to Computer Science</h2>
+            <div class="sequence-content">
+              <div class="node" id="cs-210" onclick="location.href=`{% url 'courses' %}`">CS 210</div>
+              <svg id="cs-210-arrow">
+                <defs>
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" />
+                  </marker>
+                </defs>
+                <line x1="0%" y1="50%" x2="80%" y2="50%" stroke="black" marker-end="url(#arrowhead)" />
+              </svg>
+              <div class="node" id="cs-211" onclick="location.href=`{% url 'courses' %}`">CS 211</div>
+              <svg id="cs-211-arrow">
+                <defs>
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" />
+                  </marker>
+                </defs>
+                <line x1="0%" y1="50%" x2="80%" y2="50%" stroke="black" marker-end="url(#arrowhead)" />
+              </svg>
+              <div class="node" id="cs-212" onclick="location.href=`{% url 'courses' %}`">CS 212</div>
+            </div>
+          </div>
+        </div>
+        <div class="flowchart-column" id="low-div-math">
+          <div class="node" id="math-231" onclick="location.href=`{% url 'courses' %}`">Math 231</div>
+          <svg id="math-231-arrow">
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" />
+              </marker>
+            </defs>
+            <line x1="50%" y1="0%" x2="50%" y2="80%" stroke="black" marker-end="url(#arrowhead)" />
+          </svg>
+          <div class="node" id="math-232" onclick="location.href=`{% url 'courses' %}`">Math 232</div>
+        </div>
+      </div>
+      <div class="flowchart-vertical-split" id="cs-212-split">
+        <svg id="cs-212-split-svg" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" />
+            </marker>
+          </defs>
+          <line x1="60.625%" y1="0%" x2="60.625%" y2="36.2319%" stroke="black" />
+          <line x1="50%" y1="36.2319%" x2="24.625%" y2="36.2319%" stroke="black" />
+          <line x1="50%" y1="36.2319%" x2="75.375%" y2="36.2319%" stroke="black" />
+          <line x1="24.625%" y1="36.2319%" x2="24.625%" y2="70.0483%" stroke="black" marker-end="url(#arrowhead)" />
+          <line x1="75.375%" y1="36.2319%" x2="75.375%" y2="70.0483%" stroke="black" marker-end="url(#arrowhead)" />
+        </svg>
+      </div>
+
+      <div class="flowchart-columns">
+        <div class="flowchart-column">
+          <div class="node" id="cs-313" onclick="location.href=`{% url 'courses' %}`">CS 313</div>
+          <div class="flowchart-vertical-split" id="cs-313-split">
+            <svg id="cs-313-split-svg" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                  <polygon points="0 0, 10 3.5, 0 7" />
+                </marker>
+              </defs>
+              <line x1="50%" y1="0" x2="50%" y2="50%" stroke="black" />
+              <line x1="50%" y1="50%" x2="8.3333%" y2="50%" stroke="black" />
+              <line x1="50%" y1="50%" x2="91.6667%" y2="50%" stroke="black" />
+              <line x1="8.3333%" y1="50%" x2="8.3333%" y2="90%" stroke="black" marker-end="url(#arrowhead)" />
+              <line x1="91.6667%" y1="50%" x2="91.6667%" y2="90%" stroke="black" marker-end="url(#arrowhead)" />
+            </svg>
+          </div>
+          <div class="flowchart-columns">
+            <div class="flowchart-column" id="column-315">
+              <div class="node" id="cs-315" onclick="location.href=`{% url 'courses' %}`">CS 315</div>
+              <svg id="cs-315-arrow">
+                <defs>
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" />
+                  </marker>
+                </defs>
+                <line x1="50%" y1="0%" x2="50%" y2="80%" stroke="black" marker-end="url(#arrowhead)" />
+              </svg>
+              <div class="node" id="cs-425" onclick="location.href=`{% url 'courses' %}`">CS 425</div>
+            </div>
+            <div class="flowchart-column" id="column-422">
+              <div class="node" id="cs-422" onclick="location.href=`{% url 'courses' %}`">CS 422</div>
+            </div>
+          </div>
+        </div>
+        <div class="flowchart-column" id="column-314">
+          <div class="node" id="cs-314" onclick="location.href=`{% url 'courses' %}`">CS 314</div>
+          <svg id="cs-314-arrow">
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" />
+              </marker>
+            </defs>
+            <line x1="50%" y1="0%" x2="50%" y2="80%" stroke="black" marker-end="url(#arrowhead)" />
+          </svg>
+          <div class="node" id="cs-330" onclick="location.href=`{% url 'courses' %}`">CS 330</div>
+          <svg id="cs-330-arrow">
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" />
+              </marker>
+            </defs>
+            <line x1="50%" y1="0%" x2="50%" y2="80%" stroke="black" marker-end="url(#arrowhead)" />
+          </svg>
+          <div class="node" id="cs-415" onclick="location.href=`{% url 'courses' %}`">CS 415</div>
+        </div>
+      </div>
+      <div class="flowchart-horizontal" id="writing">
+        <h2 class="sequence-title">Writing Requirement</h2>
+        <div class="sequence-content">
+          <div class="node" id="wr-320" onclick="location.href=`{% url 'courses' %}`">WR 320</div>
+          <h2 id="writing-or">OR</h2>
+          <div class="node" id="wr-321" onclick="location.href=`{% url 'courses' %}`">WR 321</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Math Reqs-->
+    <div class="flowchart-column">
+      <div class="flowchart-horizontal" id="core-math">
+        <h2 class="sequence-title">Core Math Requirements</h2>
+        <div class="sequence-content">
+          <div class="flowchart-columns">
+            <div class="flowchart-column">
+              <div class="node" id="math-251" onclick="location.href=`{% url 'courses' %}`">Math 251</div>
+              <svg id="math-251-arrow">
+                <defs>
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" />
+                  </marker>
+                </defs>
+                <line x1="50%" y1="0%" x2="50%" y2="80%" stroke="black" marker-end="url(#arrowhead)" />
+              </svg>
+              <div class="node" id="math-252" onclick="location.href=`{% url 'courses' %}`">Math 252</div>
+            </div>
+            <div class="flowchart-column column-text">
+              <h2>OR</h2>
+            </div>
+            <div class="flowchart-column">
+              <div class="node" id="math-246" onclick="location.href=`{% url 'courses' %}`">Math 246</div>
+              <svg id="math-246-arrow">
+                <defs>
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" />
+                  </marker>
+                </defs>
+                <line x1="50%" y1="0%" x2="50%" y2="80%" stroke="black" marker-end="url(#arrowhead)" />
+              </svg>
+              <div class="node" id="math-247" onclick="location.href=`{% url 'courses' %}`">Math 247</div>
+            </div>
+            <div class="flowchart-column column-text">
+              <h2>OR</h2>
+            </div>
+            <div class="flowchart-column">
+              <div class="node" id="math-261" onclick="location.href=`{% url 'courses' %}`">Math 261</div>
+              <svg id="math-261-arrow">
+                <defs>
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" />
+                  </marker>
+                </defs>
+                <line x1="50%" y1="0%" x2="50%" y2="80%" stroke="black" marker-end="url(#arrowhead)" />
+              </svg>
+              <div class="node" id="math-262" onclick="location.href=`{% url 'courses' %}`">Math 262</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flowchart-vertical-split" id="core-math-split">
+        <svg id="core-math-split-svg" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" />
+            </marker>
+          </defs>
+          <line x1="35.875%" y1="23.2%" x2="35.875%" y2="82%" stroke="black" /> <!-- 252 down -->
+          <line x1="82.875%" y1="23.2%" x2="82.875%" y2="94%" stroke="black" marker-end="url(#arrowhead)"/> <!-- 262 to 263-->
+          <line x1="57.125%" y1="50%" x2="13.125%" y2="50%" stroke="black" /> <!-- Horizontal line -->
+          <line x1="13.125%" y1="50%" x2="13.125%" y2="96%" stroke="black" marker-end="url(#arrowhead)" /> <!-- line to 343-->
+          <line x1="35.875%" y1="91%" x2="35.875%" y2="94%" stroke="black" marker-end="url(#arrowhead)" /> <!-- to 341-->
+
+          <line x1="57.125%" y1="50%" x2="57.125%" y2="94%" stroke="black" marker-end="url(#arrowhead)" /> <!-- to 253-->
+        </svg>
+      </div>
+      <div class="flowchart-horizontal" id="upper-div-math">
+        <h2 class="sequence-title">Upper Division Math Requirements (Pick Two)</h2>
+        <div class="sequence-content">
+          <div class="flowchart-columns">
+            <div class="flowchart-column" id="column-343">
+              <div class="node" id="math-343" onclick="location.href=`{% url 'courses' %}`">Math 343</div>
+              <h3 id="math-343-or">OR</h3>
+              <div class="node" id="math-425" onclick="location.href=`{% url 'courses' %}`">Math 425</div>
+            </div>
+            <div class="flowchart-column" id="column-341">
+              <div class="node" id="math-341" onclick="location.href=`{% url 'courses' %}`">Math 341</div>
+              <svg id="math-341-arrow">
+                <defs>
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" />
+                  </marker>
+                </defs>
+                <line x1="50%" y1="0%" x2="50%" y2="86.666%" stroke="black" marker-end="url(#arrowhead)" />
+              </svg>
+              <div class="node" id="math-391" onclick="location.href=`{% url 'courses' %}`">Math 391</div>
+            </div>
+            <div class="flowchart-column" id="column-253">
+              <div class="node" id="math-253" onclick="location.href=`{% url 'courses' %}`">Math 253</div>
+              <div class="node" id="upper-div-math-or"><h4>OR</h4></div>
+              <svg id="math-253-split">
+                <defs>
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" />
+                  </marker>
+                </defs>
+                <line x1="50%" y1="55%" x2="99.2683%" y2="55%" stroke="black"/>
+                <line x1="50%" y1="36%" x2="50%" y2="68.5%" stroke="black" marker-end="url(#arrowhead)" />
+              </svg>
+              <div class="node" id="math-247" onclick="location.href=`{% url 'courses' %}`">Math 247</div>
+            </div>
+            <div class="flowchart-column">
+              <div class="node" id="math-263" onclick="location.href=`{% url 'courses' %}`">Math 263</div>
+              <svg id="math-263-arrow">
+                <defs>
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" />
+                  </marker>
+                </defs>
+                <line x1="50%" y1="49.33%" x2="50%" y2="86.67%" stroke="black" marker-end="url(#arrowhead)" />
+              </svg>
+              <div class="node" id="math-351" onclick="location.href=`{% url 'courses' %}`">Math 351</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
