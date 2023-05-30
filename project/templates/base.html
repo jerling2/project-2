@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 {% load static %}
-<html>
+<html lang="en">
   <head>
     <title>Foo Bar</title>
     <link rel="stylesheet" type="text/css" href="{% static 'header-bar.css' %}">
+    {% block styles %}
+    {% endblock %}
   </head>
   <body>
     <header>
       <ul>
-        <!-- Placeholder links for now -->
         <li><a href="{% url 'index' %}">Home</a></li>
         <li><a href="{% url 'schedulebuilder' %}">Schedule Builder</a></li>
         <li><a href="{% url 'professors' %}">Professors</a></li>
@@ -20,7 +21,7 @@
       {% block content %}
       {% endblock %}
     </main>
+  {% block scripts %}
+  {% endblock %}
   </body>
-
-  
 </html>
