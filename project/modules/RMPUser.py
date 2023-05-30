@@ -5,14 +5,14 @@ Using Rate My professor API to get University of Oregon professor data for websi
 Rate My Professor API used: https://github.com/Nobelz/RateMyProfessorAPI/blob/master/ratemyprofessor/professor.py
 """
 
-school = get_school_by_name("University of Oregon")
-
-if school is None:
-    print("School Failure!")
-    exit(0)
-
 def create_dict_profs(prof_names: list):
-    
+
+    school = get_school_by_name("University of Oregon")
+
+    if school is None:
+        print("School Failure!")
+        exit(0)
+
     professors = []
     for prof in prof_names:
         professors.append(get_professor_by_school_and_name(school, prof))
