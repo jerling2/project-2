@@ -1,4 +1,4 @@
-from RateMyProfessorAPI.ratemyprofessor.main import get_school_by_name, get_professor_by_school_and_name
+from project.modules.RateMyProfessorAPI.ratemyprofessor.main import get_school_by_name, get_professor_by_school_and_name
 
 """
 Using Rate My professor API to get University of Oregon professor data for website.
