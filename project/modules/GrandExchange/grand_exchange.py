@@ -1,17 +1,28 @@
 """
-    Title:
-    Brief:
+    Title: The Grand Exchange and Component.
+    Brief: The system architecture for this project is built using the mediator
+           pattern. The mediator of the system is called the 'Grand Exchange'.
+           The Grand Exchange's role is to mediate messages between 'Components'.
     Author: Joseph.
 """
-
+# ------------------------------ Logging Config ------------------------------ #
 import logging
-
 logger = logging.getLogger("project")
 
 
+# ------------------------------ Grand Exchange ------------------------------ #
 class GrandExchange:
     """
-        Brief:
+        Brief: The Grand Exchange is a singleton object whose role is to serve
+               as a mediator for all internal system messages. From this, the
+               Grand Exchange effectively decouples components from needing to
+               know about each other and increases the separation of concern.
+
+        Note:  The Grand Exchange follows the singleton design pattern, allowing
+               only one instance of the Grand Exchange to exist at any given time.
+               When the Grand Exchange's constructor is called, it retrieves the
+               existing instance. This allows components to easily connect to the
+               correct Grand Exchange and simplifies the integration process.
     """
     channels = dict()
 
@@ -53,10 +64,19 @@ class GrandExchange:
         return None 
 
 
-
+# --------------------------------- Component -------------------------------- #
 class Component:
+    """
+        Brief: The Component class provides the protocols for communicating with
+               the Grand Exchange. When a Component instance is initialized, it
+               establishes a connection to the Grand Exchange by invoking the 
+               Grand Exchange constructor (see Grand Exchange's documentation).
+               The Component class provides the necessary protocols to subscribe,
+               unsubscribe, and publish to channels on the Grand Exchange. The
+               Component class does not provide the notify method and leaves the
+               implementation of the notify method to the concrete classes.
+    """
     def __init__(self):
-        # GrandExchange is a singleton object.
         self.mediator = GrandExchange()
 
     def subscribe(self, topic: str):
@@ -79,8 +99,7 @@ class Component:
         raise NotImplementedError("The 'notify' method must be defined in concrete classes")
 
 
-# -----------------------------------------------------------------------------
-# Warnings
+# --------------------------------- Warnings --------------------------------- #
 def channel_dne_warning(topic): 
     warnMsg = "!!!!!!!\n"
     warnMsg +=  f"WARNING: Grand Exchange : remove_listener() : "

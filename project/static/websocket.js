@@ -30,7 +30,7 @@ class MessageBrokerConnection extends WebSocket {
 
 
 // ----------------------------------------------------------------------------
-/* Where the Message Broker's route is defined. For more info, see:
+/* Where the Message Broker's websocket is defined. For more info, see:
    project/modules/UserMessageBroker/routing.py
  */
 const MESSAGE_BROKER_URL = 'ws://localhost:8000/ws/messagebroker/';
