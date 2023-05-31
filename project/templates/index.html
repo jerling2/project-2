@@ -10,6 +10,12 @@
 <script type="text/javascript">
   connectToMessageBroker()
   .then(connection => {
+
+    document.addEventListener('click', function(event) {
+      // Handle the click event 
+      connection.publish('{"topic": "a", "message" : "Hello from user!"}');
+    });
+
     // Code that relies on an open connection with the message broker can be placed here
     // This block executes when a successful connection is established with the message broker.
   })

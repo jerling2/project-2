@@ -24,7 +24,7 @@ class MessageBrokerConnection extends WebSocket {
         //
 
         // For now, just output the message to the console.
-        console.log(event);
+        console.log(event.data);
     }
 }
 
