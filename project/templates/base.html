@@ -21,7 +21,9 @@
       {% block content %}
       {% endblock %}
     </main>
-  {% block scripts %}
-  {% endblock %}
+    <!-- websocket.js provides a connection to the message broker -->
+    <script src="{% static 'websocket.js' %}"></script>
+    {% block scripts %}
+    {% endblock %}
   </body>
 </html>
