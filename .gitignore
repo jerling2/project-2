@@ -178,3 +178,4 @@ project-2/__pycache__/
 
 # Visual Studio Code
 .vs/
+.vscode/
