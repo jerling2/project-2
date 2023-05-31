@@ -162,7 +162,7 @@ cython_debug/
 /.venv/*
 .venv/*
 venv/*
-
+#*.json
 /.idea/
 
 *.pyc
