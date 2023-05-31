@@ -2,13 +2,74 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
   <h1>Professors Page</h1>
+  <label for="professors">Select a Professor</label>
+  <form>
+    <select name="professors" id="professor-select">
+      <option value="">----------</option>
+      {% for prof_name in prof_names %}
+        <option value="{{ prof_name }}">{{ prof_name }}</option>
+      {% endfor %}
+    </select>
+  </form>
+
+  <div id="professor-data"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var professorSelect = document.getElementById('professor-select');
+      professorSelect.addEventListener('change', function() {
+        var selectedProfessor = this.value;
+        if (selectedProfessor !== '') {
+          fetchProfessorData(selectedProfessor);
+        } else {
+          clearProfessorData();
+        }
+      });
+
+      function fetchProfessorData(professor) {
+        var request = new XMLHttpRequest();
+        request.open('GET', '/professor-data/' + professor + '/', true);
+
+        request.onload = function() {
+          if (request.status >= 200 && request.status < 400) {
+            var professorData = JSON.parse(request.responseText);
+            displayProfessorData(professorData);
+          } else {
+            console.error('Error: ' + request.status);
+          }
+        };
+
+        request.onerror = function() {
+          console.error('Request failed');
+        };
+
+        request.send();
+      }
+
+      function displayProfessorData(professorData) {
+        var professorDataDiv = document.getElementById('professor-data');
+        professorDataDiv.innerHTML =  '<br><strong>Difficulty: </strong>' + professorData.difficulty + '/5' +
+                                      '<br><strong>Quality: </strong>' + professorData.rating + '/5' +
+                                      '<br><strong>Number of Ratings: </strong>' + professorData.numRatings +
+                                      '<br><strong>Would Take Again Percent: </strong>' + professorData.wouldTakeAgainPercent + '%' +
+                                      '<br><strong>Courses: </strong>' + professorData.courses;
+      }
+
+      function clearProfessorData() {
+        var professorDataDiv = document.getElementById('professor-data');
+        professorDataDiv.innerHTML = '';
+      }
+    });
+  </script>
+
   <!-- This script establishes a WebSocket connection-->
   <script type="text/javascript">
     let url = 'ws://localhost:8000/ws/socket-server/'
     const chatSocket = new WebSocket(url)
 
-    chatSocket.onmessge = function(e){
+    chatSocket.onmessage = function(e){
         let data = JSON.parse(e.data)
         console.log('Data:', data)
     }

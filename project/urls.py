@@ -19,7 +19,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import index, schedulebuilder, professors, courses, degreereqs
+from .views import index, schedulebuilder, professors, professor_data, courses, degreereqs
 
 # >>>>>>>>>>>>>>>>>>>>>>>>> TEMPORARY TEST >>>>>>>>>>>>>>>>>>>>>>>>>
 from django.http import HttpResponse
@@ -38,6 +38,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('schedulebuilder/', schedulebuilder, name='schedulebuilder'),
     path('professors/', professors, name='professors'),
+    path('professor-data/<str:professor>/', professor_data, name="professor_data"),
     path('courses/', courses, name='courses'),
     path('degreereqs/', degreereqs, name='degreereqs'),
 ] + static(settings.STATIC_URL)
