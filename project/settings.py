@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'channels',
 ]
 
-ASGI_APPLICATION = 'project.asgi.application'
+
+WSGI_APPLICATION = 'project.modules.UserMessageBroker.wsgi.application'
+
+ASGI_APPLICATION = 'project.modules.UserMessageBroker.asgi.application'
 
 
 MIDDLEWARE = [
@@ -72,7 +75,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'project.wsgi.application'
 
 
 # Database

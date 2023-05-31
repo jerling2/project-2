@@ -21,26 +21,13 @@ from django.conf.urls.static import static
 
 from .views import index, schedulebuilder, professors, courses, degreereqs
 
-# >>>>>>>>>>>>>>>>>>>>>>>>> TEMPORARY TEST >>>>>>>>>>>>>>>>>>>>>>>>>
-from django.http import HttpResponse
-import requests
-
-def foobar(request):
-    response = requests.get('http://jsonplaceholder.typicode.com/posts')
-    content = response.text
-    return HttpResponse('Hello, world')
-# >>>>>>>>>>>>>>>>>>>>>>>>> TEMPORARY TEST >>>>>>>>>>>>>>>>>>>>>>>>>
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', foobar),
     path('', index, name='index'),
     path('schedulebuilder/', schedulebuilder, name='schedulebuilder'),
     path('professors/', professors, name='professors'),
     path('courses/', courses, name='courses'),
     path('degreereqs/', degreereqs, name='degreereqs'),
 ] + static(settings.STATIC_URL)
-
-
 
