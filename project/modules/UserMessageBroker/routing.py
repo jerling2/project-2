@@ -1,3 +1,7 @@
+"""
+    This file routes the websocket's url to the AsyncWebsocketConsumer classes.
+"""
+
 from django.urls import re_path
 from . import user_message_broker
 
