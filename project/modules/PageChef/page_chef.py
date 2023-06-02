@@ -117,7 +117,7 @@ class PageChef(Component):
             prof_data["number_ratings"] = str(value.get('numRatings')) + " reviews"
             # Ternary operation to format the W.T.A.S correctly.
             wtas = value.get('wouldTakeAgainPercent')
-            prof_data["would_take_again_score"] =  'N/A' if wtas == -1 else wtas
+            prof_data["would_take_again_score"] =  'N/A' if wtas == -1 else str(wtas) + "%"
             # Now that we have the groceries and the recipe, its time to cook!
             page += self._cook(RecipeBook.PROF_CONTAINER.value, groceries=prof_data)
 
