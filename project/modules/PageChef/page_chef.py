@@ -18,7 +18,7 @@ logger = logging.getLogger("project")
 
 
 # --------------------------- Listening on Channels -------------------------- #
-PAGE_CHEF_IN_CHANNELS = ["rmp data"]
+PAGE_CHEF_IN_CHANNELS = ["rmp data", "db data"]
 
 
 # --------------------------- Publishing to Channels ------------------------- #
