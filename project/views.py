@@ -2,6 +2,8 @@ from django.shortcuts import render
 from project.modules.RMPUser import create_dict_profs
 from django.http import JsonResponse
 from django.core.cache import cache
+
+import project.modules.PageChef.page_chef
 import project.modules.RMPAPICommunicator.rmp_api_communicator
 
 

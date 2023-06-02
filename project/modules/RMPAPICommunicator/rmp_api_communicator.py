@@ -13,7 +13,7 @@ RMP_API_IN_CHANNELS = ["interval cycle"]
 
 
 # --------------------------- Publishing to Channels ------------------------- #
-RMP_API_OUT_CHANNELS = ["query"]
+RMP_API_OUT_CHANNELS = ["rmp data"]
 
 
 # --------------------------- RMP API Communicator --------------------------- #
@@ -76,7 +76,7 @@ class RMPAPICommunicator(Component):
             prof_dict[prof.name]["numRatings"] = prof.num_ratings
             prof_dict[prof.name]["department"] = prof.department
             prof_dict[prof.name]["school"] = prof.school.name
-            if prof.would_take_again == -1 or prof.would_take_again == None:
+            if prof.would_take_again == None:
                 prof_dict[prof.name]["wouldTakeAgainPercent"] = 0
             else:
                 prof_dict[prof.name]["wouldTakeAgainPercent"] = prof.would_take_again
@@ -100,6 +100,7 @@ class RMPAPICommunicator(Component):
 rmp_api_communicator = RMPAPICommunicator()
 rmp_api_communicator.set_prof_names(["Hank Childs", "Zena Ariola", "Jee Choi", "Phil Colbert", "Dejing Dou", "Brittany Erickson"])
 rmp_api_communicator.set_school("University of Oregon")
+rmp_api_communicator.notify('', '')
 
 
 # --------------------------------- Warnings --------------------------------- #
