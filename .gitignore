@@ -1,3 +1,6 @@
+# Things that get generated on launch
+./project/templates/professors.html
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
