@@ -1,0 +1,225 @@
+/* ------------------------------------------------------------------------- */
+/* ---------------------------- Document Styles ---------------------------- */
+
+/* Entire Document */
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  top: 0;
+}
+
+/* The content of the page */
+main {
+  display: grid;
+  grid-template-columns: 25fr  50fr 25fr;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* ------------------------------------------------------------------------- */
+/* -------------------------- Professor's Display -------------------------- */
+/* ------------------------------------------------------------------------- */
+
+
+/* Professor's Flexbox Column Container */
+.column-for-prof {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Modify Spacing between prof containers here */
+.prof-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  margin-bottom: 2%;
+  /* Express the value 1 / 12 as an percent */
+  margin-left: calc(100% / 12);
+  margin-right: calc(100% / 12);
+  background-color: white;
+  border: 2px solid #bfbfbf;
+}
+
+/* ------------------------------------------------------------------------- */
+/* --------------------------- Professor's Header -------------------------- */
+/*             Includes: Professor's Name, and # of reviews text.            */
+
+/* Professor's Header container */
+.prof-header-container {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 2px solid #bfbfbf;
+  padding: 1em;
+}
+
+/* Text style for Professor's Name */
+.prof-name-text {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+/* The purpose of this flexbox is to align the 'based on X reviews' text to the
+   bottom of the header container */
+.prof-reviews-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Text style for 'based on X reviews' */
+.prof-reviews-text {
+  font-size: 1em;
+}
+
+/* Text style for the 'based on X reviews' link */
+.prof-reviews-link-text {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------------- */
+/* -------------------------- Professor's Content -------------------------- */
+/*      Includes scores for: Quality, Difficulty, and Would Take Again.      */
+
+/* A row flexbox container to display professor's scores in a row */
+.prof-content-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 1em;
+}
+
+/* A column flexbox to display a score description below the score value */
+.prof-score-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/* A row flexbox to display fractional scores */
+.score-fraction-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* The styling for the numerator text */
+.score-numerator-text {
+  font-weight: bold;
+  font-size: 2em;
+  margin-right: 4%;
+}
+
+/* The styling for the denominator text */
+.score-denominator-text {
+  font-weight: normal;
+  font-size: 1em;
+}
+
+/* The styling for the percent text */
+.score-percent-text {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+
+/* ------------------------------------------------------------------------- */
+/* ---------------------------- Side Bar Display --------------------------- */
+/* ------------------------------------------------------------------------- */
+/* TBH the side bar is an amalgamation of hacks */
+
+
+/* This was originally in the grid but it was acting weird */
+.column-for-sidebar {
+  position: fixed;
+  left: 75vw;
+  right: 4vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 20vh;
+  background-color: white;
+  border: 2px solid #bfbfbf;
+  margin-top: 1em;
+  font-size: 1em;
+}
+
+/* ------------------------------------------------------------------------- */
+/* ----------------------- Side Bar Content Placement ---------------------- */
+/*    These are the many containers to try to organize the text correctly    */
+
+/* This helps keep everything centered */
+.sidebar-control-container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* This controls where the left text is  */
+.sidebar-control-text-container {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;  /* << this is important */
+  margin-left: 10%;
+}
+
+/* This stylizes the left text */
+.sidebar-control-text {
+  font-weight: bold;
+  margin-right: 10%;
+}
+
+/* This controls where the right buttons / text inputs are */
+.sidebar-control-input-container {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* << this is important */
+  margin-right: 10%;
+}
+
+/* ------------------------------------------------------------------------- */
+/* ------------------------ Side Bar Inputs Placement ---------------------- */
+/*        These are all of the inputs that the user can interact with        */
+
+/* The sort arrow. This controls the sort order of the data ex: L2G G2L. */
+.sidebar-sort-by-order-input {
+  cursor: pointer;
+  width: 1em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 20px;
+  background-image: url(./up_arrow.png);
+}
+
+/* This is a 'button' that the user can click that will open a drop down menu */
+.sidebar-sort-by-button-input {
+  cursor: pointer;
+  margin-left: 0.25em;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-decoration: underline;
+}
+
+/* This is the search box for the user to use when finding a professor. */
+.sidebar-search-text-input {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 100%;
+}
