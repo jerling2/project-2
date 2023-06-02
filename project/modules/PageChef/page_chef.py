@@ -1,4 +1,13 @@
-# from ..GrandExchange.grand_exchange import Component
+"""
+    Title: The Page Chef
+    Brief: The Page Chef uses recipes and groceries to construct webpages. The
+           recipes are text files that encode HTML that the page chef reads. 
+           When the page chef comes across a line that starts with !variable,
+           it adds the corresponding variable to the line. Groceries is an alias
+           for data which is formated as a dictionary. 
+    Author: Joseph.
+"""
+# ------------------------------ Module Imports ------------------------------ #
 from ..GrandExchange.grand_exchange import Component
 from enum import Enum
 import logging
@@ -17,6 +26,7 @@ PAGE_CHEF_OUT_CHANNELS = []
 
 
 # ------------------------------- Recipe Book ------------------------------- #
+#                   These are the Locations for Each Recipe                   #
 class RecipeBook(Enum):
     PROF_PAGE_START = '/professors_page_start_recipe.txt'
     PROF_CONTAINER  = '/prof_container_recipe.txt'
@@ -25,21 +35,48 @@ class RecipeBook(Enum):
 
 # -------------------------------- Page Chef -------------------------------- #
 class PageChef(Component):
+    """
+        Brief: The PageChef creates HTML pages by filling in the template for
+               the HTML page with values. The PageChef refers to the template
+               as a 'recipe', the values that could be inserted into the recipe
+               as 'grocieres', and the value that is inserted into the recipe
+               as an 'ingredient'.
+    """
     def __init__(self):
         super().__init__()
-        self.subscribeToAll()
+        self._subscribeToAll()
         logger.info("Page Chef initalized!")
 
     
-    def subscribeToAll(self):
+    def _subscribeToAll(self):
+        """ This is called upon initialization """
         for channel in PAGE_CHEF_IN_CHANNELS:
             self.subscribe(channel)
 
-    def cook(self, recipe, groceries=None):
-        logger.info(f"PageChef: Cooking the '{recipe}' recipe.")
-    
+    def _cook(self, path_to_recipe: str, groceries: dict=None):
+        """ The _cook method takes a path_to_a_recipe and groceries to 
+            dynamically create an HTML page. The _cook method reads the recipe
+            line by line, and checks to see if the line starts with '!variable`.
+            If so, it splits the line and uses the second element of the line
+            as a key to grab the ingredient from the groceries. If the
+            ingredient is in the groceries, it adds the ingredient to the dish.
+            Otherwise, it warns the user that they're missing an ingredient and
+            adds 'None' to the dish. If the line didn't start with !variable,
+            the _cook method adds the line to the dish. This allows for some
+            recipes to be cooked without any grocieries.
+
+            Parameters:
+                1. path_to_recipe (str): 
+                    the path to the recipe using the recipe book.
+                2. grocieries (dict):
+                    the dictionary data that is used to fill in the !variable. 
+
+            Returns:
+                dish (str): A string that encodes a valid HTML webpage.
+        """
+        logger.info(f"PageChef: Cooking the '{path_to_recipe}' recipe.")
         module_path = os.path.dirname(__file__)
-        recipe = open(module_path + "/" + recipe, "r")
+        recipe = open(module_path + "/" + path_to_recipe, "r")
         dish = ""
         for line in recipe:
             if line.startswith("!variable"):
@@ -55,37 +92,47 @@ class PageChef(Component):
         recipe.close()
         return dish
 
-    def write_file(self, filename, page):
-        module_path = os.path.dirname(__file__)
-        relative_path = module_path + filename
-        file = open(relative_path, 'w')
-        file.write(page)
+    def _write_file(self, relative_path_to_file: str, html_page_str: str):
+        """ Write a file using a relative path and the HTML page string """
+        absolute_path = os.path.dirname(__file__)
+        path = absolute_path + relative_path_to_file
+        file = open(path, 'w')
+        file.write(html_page_str)
         file.close()
         return None
 
-    def update_prof_page(self, rmp_data):
+    def update_prof_page(self, rmp_data: dict):
+        """ Create the professor's page by using three recipes """
         page = ""
-        page += self.cook(RecipeBook.PROF_PAGE_START.value)
+
+        # Step 1: cook the beginning of the professor's page.
+        page += self._cook(RecipeBook.PROF_PAGE_START.value)
+
+        # Step 2: for each professor's data, make a professors container.
         for key, value in rmp_data.items():
             prof_data = {}
             prof_data["prof_name"] = key
             prof_data["quality_score"] = value.get('rating')
             prof_data["difficulty_score"] = value.get('difficulty')
-            would_take_again_score = value.get('wouldTakeAgainPercent')
-            if would_take_again_score == -1:
-                would_take_again_score = 'N/A'
-            else:
-                would_take_again_score = str(would_take_again_score) + '%'
-            prof_data["would_take_again_score"] = would_take_again_score
             prof_data["number_ratings"] = str(value.get('numRatings')) + " reviews"
-            page += self.cook(RecipeBook.PROF_CONTAINER.value, groceries=prof_data)
-        page += self.cook(RecipeBook.PROF_PAGE_END.value)
-        self.write_file('/../../templates/professors.html', page)
+            # Ternary operation to format the W.T.A.S correctly.
+            wtas = value.get('wouldTakeAgainPercent')
+            prof_data["would_take_again_score"] =  'N/A' if wtas == -1 else wtas
+            # Now that we have the groceries and the recipe, its time to cook!
+            page += self._cook(RecipeBook.PROF_CONTAINER.value, groceries=prof_data)
+
+        # Step 3: cook the end of the professor's page.       
+        page += self._cook(RecipeBook.PROF_PAGE_END.value)
+        # Step 4: Write the file to the right path.
+        self._write_file('/../../templates/professors.html', page)
         return None
 
     def notify(self, topic: str, message: object):
-        """ Do something when notified. """
+        """ Do something when this component recieves a message. """
         if topic == "rmp data":
+            if isinstance(message, dict) == False:
+                malformed_groceries_warning(message)
+                return None
             page = self.update_prof_page(rmp_data=message)
 
 
@@ -96,6 +143,14 @@ page_chef = PageChef()
 
 
 # --------------------------------- Warnings --------------------------------- #
+def malformed_groceries_warning(groceries):
+    warn_msg = "!!!!!!!\n"
+    warn_msg += "The groceries is not not a dictionary. " 
+    warn_msg += "Failed to create the webpage.\n"
+    warn_msg += f"data recieved = '{groceries}'"
+    warn_msg += "\n!!!!!!!"
+    logger.warning(warn_msg)
+
 def missing_ingredient_warning(ingredient):
     warn_msg = "!!!!!!!\n"
     warn_msg += f"Missing the '{ingredient}' ingredient! "
