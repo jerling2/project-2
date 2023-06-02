@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block styles %}
+<link rel="stylesheet" href="../static/professors.css">
+{% endblock %}
+{% block content %}
+<div class="column-for-sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-control-container">
+      <div class="sidebar-control-text-container">
+        <div class="sidebar-control-text">
+          Sort by
+        </div>
+      </div>
+      <div class="sidebar-control-input-container">
+        <div class="sidebar-sort-by-order-input"></div>
+        <div> <!-- this is sort of a hack to align the text -->
+          <div class="sidebar-sort-by-button-input">
+            name
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-control-container">
+      <div class="sidebar-control-text-container">
+        <div class="sidebar-control-text">
+          Search
+        </div>
+      </div>
+      <div class="sidebar-control-input-container">
+        <input class="sidebar-search-text-input" type="text" placeholder="professor's name">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="column-for-prof">
