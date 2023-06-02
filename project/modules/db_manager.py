@@ -1,5 +1,6 @@
 import sqlite3
 import os
+import json
 from project.modules.RMPUser import create_dict_profs
 
 """
@@ -9,7 +10,8 @@ be added to our database. We can add names that match the RMP names to ensure pr
 should be run on the nightly reset to update our data.
 """
 
-def getDB():
+
+def getDatabasePath() -> str:
         # Get the absolute path of the current file
         current_file_path = os.path.abspath(__file__)
 
@@ -22,6 +24,18 @@ def getDB():
         # Construct the relative path to the database file
         database_path = os.path.join(two_directories_up, "db.sqlite3")
 
+        return database_path
+
+
+
+
+def getProfessors():
+        """
+        Grab professors data from the professors database table in SQLite
+        """
+
+        # get the path to the database
+        database_path = getDatabasePath()
         # Connect to the database using the relative path
         conn = sqlite3.connect(database_path)
 
@@ -63,9 +77,62 @@ def getDB():
                 cur.execute('DELETE FROM professors WHERE rowid NOT IN (SELECT min(rowid) FROM professors GROUP BY name)')
                 conn.commit()
 
-                #cur.execute('DELETE FROM professors WHERE name="Randy Harris"')
-                #conn.commit()
-
                 cur.execute("SELECT * FROM professors")
                 data = cur.fetchall()
                 return data
+
+
+def jsonify(data:list) -> json:
+        """
+        Converts course list data from SQLite connector into a json object
+        for frontend js parsing.
+        Ex:
+        {
+        "name": "MATH112",
+        "professors": [
+        "Juan Flores"
+        ],
+        "schedule": "mtwf",
+        "time": "0900-0950"
+        }
+        """
+
+        # Convert the list of tuples to a list of dictionaries
+        result = []
+        for item in data:
+                result.append({
+                        'name': item[0],
+                        'professors': json.loads(item[1]),
+                        'schedule': item[2],
+                        'time': item[3]
+                })
+
+        # Convert the list of dictionaries to a JSON object
+        json_object = json.dumps(result)
+        return json_object
+
+
+
+
+def getCourses():
+        """
+        Grab courses data from the courses database table in SQLite
+        """
+        # get the path to the database
+        database_path = getDatabasePath()
+        # Connect to the database using the relative path
+        conn = sqlite3.connect(database_path)
+
+        cur = conn.cursor()
+
+        cur.execute("SELECT * FROM courses")
+        data = cur.fetchall()
+
+        cur.close()
+        conn.close()
+
+        return jsonify(data)
+
+
+
+

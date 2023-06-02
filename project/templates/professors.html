@@ -1,91 +1,349 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
-
-{% block content %}
-{% load static %}
-  <h1>Professors Page</h1>
-  <label for="professors">Select a Professor</label>
-  <form>
-    <select name="professors" id="professor-select">
-      <option value="">----------</option>
-      {% for prof_name in prof_names %}
-        <option value="{{ prof_name }}">{{ prof_name }}</option>
-      {% endfor %}
-    </select>
-  </form>
-
-  <div id="professor-data"></div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var professorSelect = document.getElementById('professor-select');
-      professorSelect.addEventListener('change', function() {
-        var selectedProfessor = this.value;
-        if (selectedProfessor !== '') {
-          fetchProfessorData(selectedProfessor);
-        } else {
-          clearProfessorData();
-        }
-      });
-
-      function fetchProfessorData(professor) {
-        var request = new XMLHttpRequest();
-        request.open('GET', '/professor-data/' + professor + '/', true);
-
-        request.onload = function() {
-          if (request.status >= 200 && request.status < 400) {
-            var professorData = JSON.parse(request.responseText);
-            displayProfessorData(professorData);
-          } else {
-            console.error('Error: ' + request.status);
-          }
-        };
-
-        request.onerror = function() {
-          console.error('Request failed');
-        };
-
-        request.send();
-      }
-
-      function displayProfessorData(professorData) {
-        var professorDataDiv = document.getElementById('professor-data');
-        professorDataDiv.innerHTML =  '<br><strong>Difficulty: </strong>' + professorData.difficulty + '/5' +
-                                      '<br><strong>Quality: </strong>' + professorData.rating + '/5' +
-                                      '<br><strong>Number of Ratings: </strong>' + professorData.numRatings +
-                                      '<br><strong>Would Take Again Percent: </strong>' + professorData.wouldTakeAgainPercent + '%' +
-                                      '<br><strong>Courses: </strong>' + professorData.courses;
-      }
-
-      function clearProfessorData() {
-        var professorDataDiv = document.getElementById('professor-data');
-        professorDataDiv.innerHTML = '';
-      }
-    });
-  </script>
-
-  <!-- This script establishes a WebSocket connection-->
-  <script type="text/javascript">
-    let url = 'ws://localhost:8000/ws/socket-server/'
-    const chatSocket = new WebSocket(url)
-
-    chatSocket.onmessage = function(e){
-        let data = JSON.parse(e.data)
-        console.log('Data:', data)
-    }
-  </script>
+{% block styles %}
+<link rel="stylesheet" href="../static/professors.css">
 {% endblock %}
 
+
+
+{% block content %}
+<div class="column-for-sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-control-container">
+      <div class="sidebar-control-text-container">
+        <div class="sidebar-control-text">
+          Sort by
+        </div>
+      </div>
+      <div class="sidebar-control-input-container">
+        <div class="sidebar-sort-by-order-input"></div>
+        <div> <!-- this is sort of a hack to align the text -->
+          <div class="sidebar-sort-by-button-input">
+            name
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-control-container">
+      <div class="sidebar-control-text-container">
+        <div class="sidebar-control-text">
+          Search
+        </div>
+      </div>
+      <div class="sidebar-control-input-container">
+        <input class="sidebar-search-text-input" type="text" placeholder="professor's name">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="column-for-prof">
+    
+  <div class="prof-container">
+    <div class="prof-header-container">
+      <div class="prof-name-text">
+        Hank Childs
+      </div>
+      <div class="prof-reviews-container">
+        <div class="prof-reviews-text">
+          based on <span class="prof-reviews-link-text">24 reviews</span>
+        </div>
+      </div>
+    </div>
+    <div class="prof-content-container"> 
+      <div class="prof-score-container">
+        <div class="score-fraction-container">
+          <div class="score-numerator-text">
+            5
+          </div>
+          <div class="score-denominator-text">
+            /5
+          </div>
+        </div>
+        <div>Quality</div>
+      </div>
+      <div class="prof-score-container">
+        <div class="score-fraction-container">
+          <div class="score-numerator-text">
+            4
+          </div>
+          <div class="score-denominator-text">
+            /5
+          </div>
+        </div>
+        <div>Difficulty</div>
+      </div>
+      <div class="prof-score-container">
+        <div class="score-percent-text">
+          100%
+        </div>
+        <div>Would Take Again</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-container">
+    <div class="prof-header-container">
+      <div class="prof-name-text">
+        Hank Childs
+      </div>
+      <div class="prof-reviews-container">
+        <div class="prof-reviews-text">
+          based on <span class="prof-reviews-link-text">24 reviews</span>
+        </div>
+      </div>
+    </div>
+    <div class="prof-content-container"> 
+      <div class="prof-score-container">
+        <div class="score-fraction-container">
+          <div class="score-numerator-text">
+            5
+          </div>
+          <div class="score-denominator-text">
+            /5
+          </div>
+        </div>
+        <div>Quality</div>
+      </div>
+      <div class="prof-score-container">
+        <div class="score-fraction-container">
+          <div class="score-numerator-text">
+            4
+          </div>
+          <div class="score-denominator-text">
+            /5
+          </div>
+        </div>
+        <div>Difficulty</div>
+      </div>
+      <div class="prof-score-container">
+        <div class="score-percent-text">
+          100%
+        </div>
+        <div>Would Take Again</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-container">
+    <div class="prof-header-container">
+      <div class="prof-name-text">
+        Hank Childs
+      </div>
+      <div class="prof-reviews-container">
+        <div class="prof-reviews-text">
+          based on <span class="prof-reviews-link-text">24 reviews</span>
+        </div>
+      </div>
+    </div>
+    <div class="prof-content-container"> 
+      <div class="prof-score-container">
+        <div class="score-fraction-container">
+          <div class="score-numerator-text">
+            5
+          </div>
+          <div class="score-denominator-text">
+            /5
+          </div>
+        </div>
+        <div>Quality</div>
+      </div>
+      <div class="prof-score-container">
+        <div class="score-fraction-container">
+          <div class="score-numerator-text">
+            4
+          </div>
+          <div class="score-denominator-text">
+            /5
+          </div>
+        </div>
+        <div>Difficulty</div>
+      </div>
+      <div class="prof-score-container">
+        <div class="score-percent-text">
+          100%
+        </div>
+        <div>Would Take Again</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-container">
+    <div class="prof-header-container">
+      <div class="prof-name-text">
+        Hank Childs
+      </div>
+      <div class="prof-reviews-container">
+        <div class="prof-reviews-text">
+          based on <span class="prof-reviews-link-text">24 reviews</span>
+        </div>
+      </div>
+    </div>
+    <div class="prof-content-container"> 
+      <div class="prof-score-container">
+        <div class="score-fraction-container">
+          <div class="score-numerator-text">
+            5
+          </div>
+          <div class="score-denominator-text">
+            /5
+          </div>
+        </div>
+        <div>Quality</div>
+      </div>
+      <div class="prof-score-container">
+        <div class="score-fraction-container">
+          <div class="score-numerator-text">
+            4
+          </div>
+          <div class="score-denominator-text">
+            /5
+          </div>
+        </div>
+        <div>Difficulty</div>
+      </div>
+      <div class="prof-score-container">
+        <div class="score-percent-text">
+          100%
+        </div>
+        <div>Would Take Again</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-container">
+    <div class="prof-header-container">
+      <div class="prof-name-text">
+        Hank Childs
+      </div>
+      <div class="prof-reviews-container">
+        <div class="prof-reviews-text">
+          based on <span class="prof-reviews-link-text">24 reviews</span>
+        </div>
+      </div>
+    </div>
+    <div class="prof-content-container"> 
+      <div class="prof-score-container">
+        <div class="score-fraction-container">
+          <div class="score-numerator-text">
+            5
+          </div>
+          <div class="score-denominator-text">
+            /5
+          </div>
+        </div>
+        <div>Quality</div>
+      </div>
+      <div class="prof-score-container">
+        <div class="score-fraction-container">
+          <div class="score-numerator-text">
+            4
+          </div>
+          <div class="score-denominator-text">
+            /5
+          </div>
+        </div>
+        <div>Difficulty</div>
+      </div>
+      <div class="prof-score-container">
+        <div class="score-percent-text">
+          100%
+        </div>
+        <div>Would Take Again</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-container">
+    <div class="prof-header-container">
+      <div class="prof-name-text">
+        Hank Childs
+      </div>
+      <div class="prof-reviews-container">
+        <div class="prof-reviews-text">
+          based on <span class="prof-reviews-link-text">24 reviews</span>
+        </div>
+      </div>
+    </div>
+    <div class="prof-content-container"> 
+      <div class="prof-score-container">
+        <div class="score-fraction-container">
+          <div class="score-numerator-text">
+            5
+          </div>
+          <div class="score-denominator-text">
+            /5
+          </div>
+        </div>
+        <div>Quality</div>
+      </div>
+      <div class="prof-score-container">
+        <div class="score-fraction-container">
+          <div class="score-numerator-text">
+            4
+          </div>
+          <div class="score-denominator-text">
+            /5
+          </div>
+        </div>
+        <div>Difficulty</div>
+      </div>
+      <div class="prof-score-container">
+        <div class="score-percent-text">
+          100%
+        </div>
+        <div>Would Take Again</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-container">
+    <div class="prof-header-container">
+      <div class="prof-name-text">
+        Hank Childs
+      </div>
+      <div class="prof-reviews-container">
+        <div class="prof-reviews-text">
+          based on <span class="prof-reviews-link-text">24 reviews</span>
+        </div>
+      </div>
+    </div>
+    <div class="prof-content-container"> 
+      <div class="prof-score-container">
+        <div class="score-fraction-container">
+          <div class="score-numerator-text">
+            5
+          </div>
+          <div class="score-denominator-text">
+            /5
+          </div>
+        </div>
+        <div>Quality</div>
+      </div>
+      <div class="prof-score-container">
+        <div class="score-fraction-container">
+          <div class="score-numerator-text">
+            4
+          </div>
+          <div class="score-denominator-text">
+            /5
+          </div>
+        </div>
+        <div>Difficulty</div>
+      </div>
+      <div class="prof-score-container">
+        <div class="score-percent-text">
+          100%
+        </div>
+        <div>Would Take Again</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+
 {% block scripts %}
-<!-- This script connects the user to the user's message broker by using a web socket. -->
-<script type="text/javascript">
-  connectToMessageBroker()
-  .then(connection => {
-    // Code that relies on an open connection with the message broker can be placed here
-    // This block executes when a successful connection is established with the message broker.
-  })
-  .catch(err => {
-    console.error(err);
-  });
-</script>
 {% endblock %}

@@ -13,16 +13,19 @@ def schedulebuilder(request):
     return render(request, "schedulebuilder.html")
 
 def professors(request):
-    prof_names = ["Hank Childs", "Zena Ariola", "Jee Choi", "Phil Colbert", "Dejing Dou", "Brittany Erickson"]
-    # Try to fetch the professor data from the cache
-    professor_data = cache.get('prof_data')
+    return render(request, "professors.html")
+    # # LOAD CONFIG FILE
+        
+    # prof_names = ["Hank Childs", "Zena Ariola", "Jee Choi", "Phil Colbert", "Dejing Dou", "Brittany Erickson"]
+    # # Try to fetch the professor data from the cache
+    # professor_data = cache.get('prof_data')
     
-    if professor_data is None:
-        # If the data is not available in the cache, create it and store it in the cache
-        professor_data = create_dict_profs(prof_names)
-        cache.set('prof_data', professor_data)
+    # if professor_data is None:
+    #     # If the data is not available in the cache, create it and store it in the cache
+    #     professor_data = create_dict_profs(prof_names)
+    #     cache.set('prof_data', professor_data)
     
-    return render(request, "professors.html", {"prof_names": prof_names})
+    # return render(request, "professors.html", {"prof_names": prof_names})
 
 def professor_data(request, professor):
     prof_data = cache.get('prof_data')
