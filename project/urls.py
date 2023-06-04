@@ -19,28 +19,16 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import index, schedulebuilder, professors, courses, degreereqs
-
-# >>>>>>>>>>>>>>>>>>>>>>>>> TEMPORARY TEST >>>>>>>>>>>>>>>>>>>>>>>>>
-from django.http import HttpResponse
-import requests
-
-def foobar(request):
-    response = requests.get('http://jsonplaceholder.typicode.com/posts')
-    content = response.text
-    return HttpResponse('Hello, world')
-# >>>>>>>>>>>>>>>>>>>>>>>>> TEMPORARY TEST >>>>>>>>>>>>>>>>>>>>>>>>>
+from .views import index, schedulebuilder, professors, professor_data, courses, degreereqs
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', foobar),
     path('', index, name='index'),
     path('schedulebuilder/', schedulebuilder, name='schedulebuilder'),
     path('professors/', professors, name='professors'),
+    path('professor-data/<str:professor>/', professor_data, name="professor_data"),
     path('courses/', courses, name='courses'),
     path('degreereqs/', degreereqs, name='degreereqs'),
 ] + static(settings.STATIC_URL)
-
-
 

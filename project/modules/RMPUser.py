@@ -1,4 +1,4 @@
-from RateMyProfessorAPI.ratemyprofessor.main import get_school_by_name, get_professor_by_school_and_name
+from project.modules.RateMyProfessorAPI.ratemyprofessor.main import get_school_by_name, get_professor_by_school_and_name
 
 """
 Using Rate My professor API to get University of Oregon professor data for website.
@@ -23,17 +23,21 @@ def create_dict_profs(prof_names: list):
         if (prof is None):
             continue
         prof_dic[f"{prof.name}"] = {
-            "self" : prof,
             "difficulty" : prof.difficulty,
             "rating" : prof.rating,
             "numRatings" : prof.num_ratings,
             "department" : prof.department,
-            "wouldTakeAgainPercent" : prof.would_take_again,
-            "school" : prof.school,
-            "courses" : prof.courses,
-            "ratings" : prof.get_ratings()
+            
+            "school" : prof.school.name,
+            #"ratings" : prof.get_ratings()
         }
-
+        if prof.would_take_again == -1 or prof.would_take_again == None:
+                prof_dic[f'{prof.name}']["wouldTakeAgainPercent"] = 0
+        else:   
+                prof_dic[f'{prof.name}']["wouldTakeAgainPercent"] = prof.would_take_again
+        prof_dic[f'{prof.name}']["courses"] = []
+        for course in prof.courses:
+             prof_dic[f'{prof.name}']["courses"].append(course.name)
     return prof_dic
 
     

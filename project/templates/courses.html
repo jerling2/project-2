@@ -4,3 +4,17 @@
 {% block content %}
   <h1>Courses Page</h1>
 {% endblock %}
+
+{% block scripts %}
+<!-- This script connects the user to the user's message broker by using a web socket. -->
+<script type="text/javascript">
+  connectToMessageBroker()
+  .then(connection => {
+    // Code that relies on an open connection with the message broker can be placed here
+    // This block executes when a successful connection is established with the message broker.
+  })
+  .catch(err => {
+    console.error(err);
+  });
+</script>
+{% endblock %}
