@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
-
-{% block content %}
-  <h1>Courses Page</h1>
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'courses.css' %}">
+<link rel="stylesheet" href="{% static 'sidebar.css' %}">
 {% endblock %}
-
+{% block content %}
+{% include "sidebar.html" %}
+<div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+      Math 252
+    </div>
+    <div class="course-view-details-container">
+      <div class="course-view-details-button">
+        view details
+      </div>
+    </div>
+    <div class="course-shown-details-container hidden">
+      <div class="course-professor-available-text">
+        Professor available:
+        <span>
+          Lie Jiao
+        </span>
+      </div>
+      <div class="course-class-time-text">
+        Class time:
+        <span>
+          Monday, Wednesday, 1400 - 1520
+        </span>
+      </div>
+    </div>
+  </div>
+{% endblock %}
 {% block scripts %}
-<!-- This script connects the user to the user's message broker by using a web socket. -->
-<script type="text/javascript">
-  connectToMessageBroker()
-  .then(connection => {
-    // Code that relies on an open connection with the message broker can be placed here
-    // This block executes when a successful connection is established with the message broker.
-  })
-  .catch(err => {
-    console.error(err);
-  });
-</script>
+<script src="{% static 'courses.js' %}"></script>
 {% endblock %}
