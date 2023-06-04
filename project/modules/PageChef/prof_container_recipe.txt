@@ -1,0 +1,45 @@
+<div class="prof-container">
+  <div class="prof-header-container">
+    <div class="prof-name-text">
+!variable prof_name
+    </div>
+    <div class="prof-reviews-container">
+      <div class="prof-reviews-text">
+        based on 
+        <span class="prof-reviews-link-text">
+!variable number_ratings
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="prof-content-container"> 
+    <div class="prof-score-container">
+      <div class="score-fraction-container">
+        <div class="score-numerator-text">
+!variable quality_score
+        </div>
+        <div class="score-denominator-text">
+          /5
+        </div>
+      </div>
+      <div>Quality</div>
+    </div>
+    <div class="prof-score-container">
+      <div class="score-fraction-container">
+        <div class="score-numerator-text">
+!variable difficulty_score
+        </div>
+        <div class="score-denominator-text">
+          /5
+        </div>
+      </div>
+      <div>Difficulty</div>
+    </div>
+    <div class="prof-score-container">
+      <div class="score-percent-text">
+!variable would_take_again_score
+      </div>
+      <div>Would Take Again</div>
+    </div>
+  </div>
+</div>

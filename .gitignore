@@ -1,3 +1,6 @@
+# Things that get generated on launch
+project/templates/professors.html
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -162,7 +165,7 @@ cython_debug/
 /.venv/*
 .venv/*
 venv/*
-
+#*.json
 /.idea/
 
 *.pyc
@@ -178,3 +181,4 @@ project-2/__pycache__/
 
 # Visual Studio Code
 .vs/
+.vscode/
