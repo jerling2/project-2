@@ -102,7 +102,7 @@ def get_professors_by_school_and_name(college: School, professor_name: str):
              this will return an empty list.
     """
     professor_name.replace(' ', '+')
-    #Edited this line:
+    #Edited this line"
     url = "https://www.ratemyprofessors.com" \
         "/search/professors?q=%s&sid=%s" % (professor_name, college.id)
     page = requests.get(url)
