@@ -42,10 +42,10 @@ class CoursesDBCommunicator(Component):
         current_directory = os.path.dirname(current_file_path)
 
         # Navigate two directories up
-        two_directories_up = os.path.abspath(os.path.join(current_directory, "../../"))
+        three_directories_up = os.path.abspath(os.path.join(current_directory, "../../../"))
 
         # Construct the relative path to the database file
-        database_path = os.path.join(two_directories_up, "db.sqlite3")
+        database_path = os.path.join(three_directories_up, "db.sqlite3")
 
         return database_path
     def jsonify(self, data: list) -> json:
