@@ -1,0 +1,6 @@
+<div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+!variable course_title
+    </div>
+    <div class="course-details-container">
