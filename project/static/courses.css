@@ -46,39 +46,24 @@ body {
   font-size: 2em;
   text-align: center;
   margin-top: 1em;
-  color: #cfe4ff;
-}
-
-.course-view-details-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.course-view-details-button {
-  cursor: pointer;
-  text-align: center;
-  border: 2px solid #cfe4ff;
-  color: #cfe4ff;
-  padding: 10px;
-  border-radius: 10px;
-  margin-top: 1em;
   margin-bottom: 1em;
+  color: #cfe4ff;
 }
 
-.course-view-details-button:hover {
-  border-color: #1071e5;
-  background-color: #edf5ff;
-  color: #1071e5;
-}
-
-.course-shown-details-container {
+.course-details-container {
   display: flex;
   flex-direction: column;
   background-color: #DFE3E8;
+}
+
+.course-professor-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border-right: 2px solid #bfbfbf;
+  border-left: 2px solid #bfbfbf;
+  border-bottom: 2px solid #bfbfbf;
   padding: 1em;
-  row-gap: 1em;
-  border: 2px solid #bfbfbf;
 }
 
 .course-professor-available-text {
@@ -89,7 +74,3 @@ body {
   text-align: center;
 }
 
-/* This gets added to an element to make it hidden */
-.hidden {
-  display: none;
-}
