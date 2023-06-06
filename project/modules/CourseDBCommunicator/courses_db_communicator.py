@@ -42,10 +42,10 @@ class CoursesDBCommunicator(Component):
         current_directory = os.path.dirname(current_file_path)
 
         # Navigate two directories up
-        two_directories_up = os.path.abspath(os.path.join(current_directory, "../../"))
+        three_directories_up = os.path.abspath(os.path.join(current_directory, "../../../"))
 
         # Construct the relative path to the database file
-        database_path = os.path.join(two_directories_up, "db.sqlite3")
+        database_path = os.path.join(three_directories_up, "db.sqlite3")
 
         return database_path
     def jsonify(self, data: list) -> json:
@@ -64,15 +64,25 @@ class CoursesDBCommunicator(Component):
         """
 
         # Convert the list of tuples to a list of dictionaries
-        result = []
+        result = dict()
         for item in data:
-            result.append({
-                'name': item[0],
-                'professors': json.loads(item[1]),
-                'schedule': item[2],
-                'time': item[3]
-            })
+            c = item[0] if item[0] else 'TBA'
+            p = json.loads(item[1]) if item[1] != '[]' else ['TBA']
+            s = item[2] if item[2] else 'TBA'
+            t = item[3] if item[3] else 'TBA'
 
+            if c in result:
+                # If course has already been entered into the result.
+                result[c]['professors'].extend(p)
+                result[c]['schedule'].append(s)
+                result[c]['time'].append(t)
+            else:
+                # Otherwise, add course to the result.
+                result[c] = {
+                    'professors': p,
+                    'schedule':  [s],
+                    'time':      [t]
+                }
         # Convert the list of dictionaries to a JSON object
         json_object = json.dumps(result)
         return json_object
@@ -93,7 +103,6 @@ class CoursesDBCommunicator(Component):
 
         cur.close()
         conn.close()
-
         return self.jsonify(data)
 
     def notify(self, topic: str, message: object):
@@ -103,6 +112,14 @@ class CoursesDBCommunicator(Component):
         logging.info("Done")
         for channel in DB_OUT_CHANNELS:
             self.publish(channel, courses)
+
+
+# --------------------------------- Warnings --------------------------------- #
+def invalid_key():
+    warn_msg = "!!!!!!!\n"
+    warn_msg += f"Cannot add an invalid course key of 'TBA'" 
+    warn_msg += "\n!!!!!!!"
+    logger.warning(warn_msg)
 
 
 # ----------------- Create Instance of  Course DB Communicator ----------------- #

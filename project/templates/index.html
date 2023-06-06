@@ -1,9 +1,48 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
 
-{% block content %}
-  <h1>Home Page</h1>
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
 {% endblock %}
+
+{% block content %}
+<body>
+  <div class="header">
+    <h1 class="tagline">More Clarity &amp; Control</h1>
+    <h2 class="subheader">A solution to the difficult class selection process.</h2>
+  </div>
+  <div class="container">
+    <div class="line">
+      <p class="line-text">Build Your Own Schedule</p>
+      <div class="button-container">
+        <a href="{% url 'schedulebuilder' %}" class="button">></a>
+      </div>
+    </div>
+    <div class="line">
+      <p class="line-text">Discover CS Courses</p>
+      <div class="button-container">
+        <a href="{% url 'courses' %}" class="button">></a>
+      </div>
+    </div>
+    <div class="line">
+      <p class="line-text">Explore UO Professors</p>
+      <div class="button-container">
+        <a href="{% url 'professors' %}" class="button">></a>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <!-- Content for the third section -->
+  </div>
+</body>
+{% endblock %}
+
+
+
+
+
+
 
 {% block scripts %}
 <!-- This script connects the user to the user's message broker by using a web socket. -->

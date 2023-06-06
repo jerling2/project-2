@@ -1,10 +1,14 @@
+
+
 h1 {
+  margin-top: 80px;
   text-align: center;
+  font-size: 54px;
 }
 
 h2 {
   font-size: min(max(14px, 1.2vw), 24px);
-  background-color: rgb(224, 224, 224);
+  background-color: #DFE3E8;
   white-space: nowrap;
   overflow: hidden;
   z-index: 11;
@@ -23,7 +27,7 @@ svg {
 
 .flowchart-horizontal {
   width: 33.854vw;
-  background-color: rgb(224, 224, 224);
+  background-color: #DFE3E8;
   color: black;
   border: 1px solid black;
   border-radius: 10px;
@@ -53,7 +57,7 @@ svg {
 .node {
   width: 7.813vw;
   height: 6.481vh;
-  background-color: lightblue;
+  background-color: #1071e5;
   border: 1px solid black;
   border-radius: 10px;
   text-align: center;
@@ -61,6 +65,7 @@ svg {
   justify-content: center;
   align-items: center;
   font-size: min(max(10px, 1.146vw), 20px);
+  color: #cfe4ff;
   transition: background-color 0.3s ease;
   z-index: 12;
 }
@@ -174,6 +179,7 @@ svg {
   margin-top:-0.926vh;
   margin-right:-10.677vw;
   background-color:#f2f2ff;
+  color: black;
 }
 
 #column-343 {

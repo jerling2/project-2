@@ -1,20 +1,557 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
-
-{% block content %}
-  <h1>Courses Page</h1>
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'courses.css' %}">
+<link rel="stylesheet" href="{% static 'sidebar.css' %}">
 {% endblock %}
-
+{% block content %}
+{% include "sidebar.html" %}<div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+CS210
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+TBA
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+TBA
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+CS211
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Hank Childs
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+tr 1000-1120
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+CS212
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Lie Jiao
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+t 1400-1450
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+CS313
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+TBA
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+TBA
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+CS314
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+TBA
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+TBA
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+CS315
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+John Smith
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+mw 1400-1520
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+CS330
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Joseph McLaughlin
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+mw 1000-1120
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+CS415
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Boyana Norris
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+tr 1400-1520
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+CS422
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Juan Flores
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+wf 1600-1720
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+CS425
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Mary Jane
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+wf 0830-0950
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH112
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Juan Flores
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+mtwf 0900-0950
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH231
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Hank Childs
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+mtwf 1400-1450
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH232
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Janice Johnson
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+mtwf 0900-0950
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH246
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+TBA
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+TBA
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH247
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Anais Blanque
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+mtwr 1400-1450
+          </span>
+        </div>
+      </div>      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Jacques Coulette
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+mtwr 1400-1450
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH251
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Grant Yilang
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+mtwf 0800-0850
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH252
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Isabelle Ortega
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+mtwf 1000-1050
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH253
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Alexa Gonzalez
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+mtwf 0800-0850
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH261
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+TBA
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+TBA
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH262
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+TBA
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+TBA
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH263
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+TBA
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+TBA
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH341
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+TBA
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+TBA
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH343
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Viet Tran
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+mwf 1100-1150
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH351
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+TBA
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+TBA
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH391
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+TBA
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+TBA
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+MATH425
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Anish Giri
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+mtf 1000-1050
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+WR320
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Burt Harris
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+tr 1000-1120
+          </span>
+        </div>
+      </div>    </div>
+  </div><div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+WR321
+    </div>
+    <div class="course-details-container">      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+Carry Mills
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+async async
+          </span>
+        </div>
+      </div>    </div>
+  </div><div>
+{% endblock %}
 {% block scripts %}
-<!-- This script connects the user to the user's message broker by using a web socket. -->
-<script type="text/javascript">
-  connectToMessageBroker()
-  .then(connection => {
-    // Code that relies on an open connection with the message broker can be placed here
-    // This block executes when a successful connection is established with the message broker.
-  })
-  .catch(err => {
-    console.error(err);
-  });
-</script>
 {% endblock %}

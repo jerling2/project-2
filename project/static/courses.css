@@ -1,0 +1,76 @@
+/* ------------------------------------------------------------------------- */
+/* ---------------------------- Document Styles ---------------------------- */
+
+/* Entire Document */
+body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    top: 0;
+  }
+
+  /* The content of the page */
+  main {
+    display: grid;
+    grid-template-columns: 25fr  50fr 25fr;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  /* ------------------------------------------------------------------------- */
+  /* --------------------------- Courses's Display --------------------------- */
+  /* ------------------------------------------------------------------------- */
+
+
+/* Courses' Flexbox Column Container */
+.column-for-courses {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Modify Spacing between course containers here */
+.course-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  margin-bottom: 2%;
+  /* Express the value 1 / 12 as an percent */
+  margin-left: calc(100% / 12);
+  margin-right: calc(100% / 12);
+  background-color: #1071e5;
+}
+
+.course-title-text {
+  font-size: 2em;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: #cfe4ff;
+}
+
+.course-details-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #DFE3E8;
+}
+
+.course-professor-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border-right: 2px solid #bfbfbf;
+  border-left: 2px solid #bfbfbf;
+  border-bottom: 2px solid #bfbfbf;
+  padding: 1em;
+}
+
+.course-professor-available-text {
+  text-align: center;
+}
+
+.course-class-time-text {
+  text-align: center;
+}
+
