@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'courses.css' %}">
+<link rel="stylesheet" href="{% static 'sidebar.css' %}">
+{% endblock %}
+{% block content %}
+{% include "sidebar.html" %}
+<div class="column-for-courses">
+  <div class="course-container">
+    <div class="course-title-text">
+      Math 252
+    </div>
+    <div class="course-details-container">
+      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+            Lie Jiao
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+            Monday, Wednesday, 1400 - 1520
+          </span>
+        </div>
+      </div>
+
+      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+            Lie Jiao
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+            Monday, Wednesday, 1400 - 1520
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<div>
+{% endblock %}
+{% block scripts %}
+{% endblock %}

@@ -1,0 +1,14 @@
+      <div class="course-professor-container">
+        <div class="course-professor-available-text">
+          Professor available:
+          <span>
+!variable professor
+          </span>
+        </div>
+        <div class="course-class-time-text">
+          Class time:
+          <span>
+!variable time
+          </span>
+        </div>
+      </div>

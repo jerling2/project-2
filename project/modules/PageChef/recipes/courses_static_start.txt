@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'courses.css' %}">
+<link rel="stylesheet" href="{% static 'sidebar.css' %}">
+{% endblock %}
+{% block content %}
+{% include "sidebar.html" %}

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'professors.css' %}">
+<link rel="stylesheet" href="{% static 'sidebar.css' %}">
+{% endblock %}
+{% block content %}
+{% include "sidebar.html" %}
+
+<div class="column-for-prof">
