@@ -9,18 +9,18 @@ body {
     padding: 0;
     top: 0;
   }
-  
+
   /* The content of the page */
   main {
     display: grid;
     grid-template-columns: 25fr  50fr 25fr;
     font-family: 'Open Sans', sans-serif;
   }
-  
+
   /* ------------------------------------------------------------------------- */
   /* --------------------------- Courses's Display --------------------------- */
   /* ------------------------------------------------------------------------- */
-  
+
 
 /* Courses' Flexbox Column Container */
 .column-for-courses {
