@@ -55,6 +55,7 @@ main {
   justify-content: space-between;
   border-bottom: 2px solid #bfbfbf;
   padding: 1em;
+    background-color:#cfe4ff;
 }
 
 /* Text style for Professor's Name */
