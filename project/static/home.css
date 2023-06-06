@@ -9,7 +9,7 @@ body {
 
 .header {
   text-align: center;
-  padding: 100px;
+  padding: 10px;
   color: white;
 }
 
@@ -21,7 +21,7 @@ body {
 .subheader {
   font-size: 32px;
   color: #cfe4ff;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 }
 
 .divider {
@@ -41,6 +41,7 @@ body {
   max-width: 600px; /* Adjust the width as needed */
   margin: 0 auto; /* Center the container horizontally */
   border-radius: 20px; /* Add rounded edges */
+  font-weight: bold; /* Make the font inside the container bold */
 }
 
 .line {
@@ -66,4 +67,6 @@ body {
   text-decoration: none;
   border-radius: 4px;
   margin: 10px;
+  border: 2px solid #1071e5; /* Add border around the button */
+  font-weight: bold; /* Make the font bold */
 }
