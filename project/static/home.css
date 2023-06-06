@@ -1,6 +1,9 @@
-/* CSS styles for the page layout */
+/*
+Author: Ryan
+CSS styles for the homepage layout
+ */
 body {
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #1071e5;
@@ -10,7 +13,7 @@ body {
 .header {
   text-align: center;
   padding: 10px;
-  color: white;
+  color: #f9fafb;
 }
 
 .tagline {
@@ -38,7 +41,7 @@ body {
 .container {
   background-color: #DFE3E8;
   padding: 20px;
-  max-width: 600px; /* Adjust the width as needed */
+  max-width: 600px;
   margin: 0 auto; /* Center the container horizontally */
   border-radius: 20px; /* Add rounded edges */
   font-weight: bold; /* Make the font inside the container bold */
@@ -61,12 +64,12 @@ body {
 }
 
 .button {
-  background-color: #fff;
+  background-color: #f9fafb;
   color: #1071e5;
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 4px;
   margin: 10px;
   border: 2px solid #1071e5; /* Add border around the button */
-  font-weight: bold; /* Make the font bold */
+  font-weight: bold;
 }
