@@ -1,3 +1,4 @@
+
   function sortByName() {
     console.log("Sorting courses by name");
 
@@ -8,15 +9,15 @@
     var currentSortOrder = sortButton.classList[1];
 
     // Toggle the sort order class
+
+    // Sort order 0: Sorted A-Z
+    // Sort order 1: Sorted Z-A
     if (currentSortOrder === 'sort-order-0') {
       sortButton.classList.remove('sort-order-0');
       sortButton.classList.add('sort-order-1');
     } else if (currentSortOrder === 'sort-order-1') {
       sortButton.classList.remove('sort-order-1');
-      sortButton.classList.add('sort-order-2');
-    } else if (currentSortOrder === 'sort-order-2') {
-      sortButton.classList.remove('sort-order-2');
-      sortButton.classList.add('sort-order-1');
+      sortButton.classList.add('sort-order-0');
     } else {
       // Default sort order
       sortButton.classList.add('sort-order-1');
@@ -33,9 +34,9 @@
       var nameB = b.querySelector('.course-title-text').textContent.trim();
 
       // Determine the sorting order based on the updated sort order class
-      if (updatedSortOrder === 'sort-order-1') {
+      if (updatedSortOrder === 'sort-order-0') {
         return nameA.localeCompare(nameB);
-      } else if (updatedSortOrder === 'sort-order-2') {
+      } else if (updatedSortOrder === 'sort-order-1') {
         return nameB.localeCompare(nameA);
       } else {
         // Default sorting order (sort-order-0 or other unrecognized class)
