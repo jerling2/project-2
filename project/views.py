@@ -3,9 +3,9 @@ from project.modules.RMPUser import create_dict_profs
 from django.http import JsonResponse
 from django.core.cache import cache
 
-import project.modules.PageChef.page_chef
-import project.modules.RMPAPICommunicator.rmp_api_communicator
-import project.modules.CourseDBCommunicator.courses_db_communicator
+# import project.modules.PageChef.page_chef
+# import project.modules.RMPAPICommunicator.rmp_api_communicator
+# import project.modules.CourseDBCommunicator.courses_db_communicator
 
 
 
@@ -13,7 +13,7 @@ def index(request):
     return render(request, "index.html")
 
 def schedulebuilder(request):
-    return render(request, "schedulebuilder.html")
+    return render(request, "example.html")
 
 def professors(request):
     return render(request, "professors.html")
