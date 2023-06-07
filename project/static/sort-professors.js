@@ -1,8 +1,9 @@
   function sortByName() {
     console.log("Sorting professors by name");
-
     // Get the sidebar sort button element
     var sortButton = document.querySelector('.sidebar-sort-by-button-input');
+
+    var sidebar = document.querySelector('.sidebar-sort-by-order-input');
 
     // Get the current sort order class
     var currentSortOrder = sortButton.classList[1];
@@ -14,15 +15,23 @@
     if (currentSortOrder === 'sort-order-0') {
       sortButton.classList.remove('sort-order-0');
       sortButton.classList.add('sort-order-1');
+      sidebar.classList.remove('down_arrow');
+      sidebar.classList.add('up_arrow');
     } else if (currentSortOrder === 'sort-order-1') {
       sortButton.classList.remove('sort-order-1');
       sortButton.classList.add('sort-order-2');
+      sidebar.classList.remove('up_arrow');
+      sidebar.classList.add('down_arrow');
     } else if (currentSortOrder === 'sort-order-2') {
       sortButton.classList.remove('sort-order-2');
       sortButton.classList.add('sort-order-1');
+      sidebar.classList.remove('down_arrow');
+      sidebar.classList.add('up_arrow');
     } else {
       // Default sort order
       sortButton.classList.add('sort-order-1');
+      sidebar.classList.remove('down_arrow');
+      sidebar.classList.add('up_arrow');
     }
 
     // Get the updated sort order class

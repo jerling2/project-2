@@ -132,6 +132,7 @@ main {
 }
 
 .class-selection-search-input {
+  display: none;
   background-color: #CFE4FF;
   border: 4px #1071E5 solid;
   position: relative;
