@@ -1,4 +1,18 @@
 <div>
 {% endblock %}
 {% block scripts %}
+function search() {
+  var searchInput = document.getElementsByClassName('sidebar-search-text-input')[0].value.toLowerCase();
+  var courseContainers = document.getElementsByClassName('course-container');
+
+  for (var i = 0; i < courseContainers.length; i++) {
+    var courseTitle = courseContainers[i].getElementsByClassName('course-title-text')[0].innerText.toLowerCase();
+
+    if (courseTitle.includes(searchInput)) {
+      courseContainers[i].style.display = 'block';
+    } else {
+      courseContainers[i].style.display = 'none';
+    }
+  }
+}
 {% endblock %}
