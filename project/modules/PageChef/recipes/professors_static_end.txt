@@ -4,4 +4,20 @@
 
 
 {% block scripts %}
+<script>
+  function search() {
+    var searchInput = document.getElementsByClassName('sidebar-search-text-input')[0].value.toLowerCase();
+    var professorContainers = document.getElementsByClassName('prof-container');
+
+    for (var i = 0; i < professorContainers.length; i++) {
+      var professorName = professorContainers[i].getElementsByClassName('prof-name-text')[0].innerText.toLowerCase();
+
+      if (professorName.includes(searchInput)) {
+        professorContainers[i].style.display = 'block';
+      } else {
+        professorContainers[i].style.display = 'none';
+      }
+    }
+  }
+</script>
 {% endblock %}
