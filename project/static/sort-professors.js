@@ -8,6 +8,9 @@
     var currentSortOrder = sortButton.classList[1];
 
     // Toggle the sort order class
+    // Sort order 0: Unsorted
+    // Sort order 1: Sorted A-Z
+    // Sort order 2: Sorted Z-A
     if (currentSortOrder === 'sort-order-0') {
       sortButton.classList.remove('sort-order-0');
       sortButton.classList.add('sort-order-1');
