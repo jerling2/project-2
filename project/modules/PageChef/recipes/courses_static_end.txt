@@ -1,6 +1,8 @@
 <div>
 {% endblock %}
 {% block scripts %}
+
+<script>
 function search() {
   var searchInput = document.getElementsByClassName('sidebar-search-text-input')[0].value.toLowerCase();
   var courseContainers = document.getElementsByClassName('course-container');
@@ -15,6 +17,7 @@ function search() {
     }
   }
 }
+</script>
 
 <script src="{% static 'sort-courses.js' %}"></script>
 {% endblock %}
