@@ -44,6 +44,13 @@
     </div>
   </div>
   <div class="schedule-builder-content-container">
+    <div class="schedule-builder-content-overlay">
+      <div id="class-1" class="schedule-builder-class-container">
+        <div class="schedule-builder-class-text">
+          Class
+        </div>
+      </div>
+    </div>
     <div class="dotted-line">
       <div class="time-text">8am</div>
     </div>
@@ -79,11 +86,45 @@
     </div>
   </div>
 </div>
-<div class="class-selection-container">
 
+
+<div class="class-selection-container">
+  <div class="class-selection-search-input-container">
+    <input class="class-selection-search-input" placeholder="search">
+  </div>  
+  <div class="class-selection-classes-container">
+    <div class="class-selection-class-container">
+      <div class="class-selcection-class-text">Class</div>
+    </div>
+    <div class="class-selection-class-container">
+      <div class="class-selcection-class-text">Class</div>
+    </div>
+    <div class="class-selection-class-container">
+      <div class="class-selcection-class-text">Class</div>
+    </div>
+    <div class="class-selection-class-container">
+      <div class="class-selcection-class-text">Class</div>
+    </div>
+    <div class="class-selection-class-container">
+      <div class="class-selcection-class-text">Class</div>
+    </div>
+    <div class="class-selection-class-container">
+      <div class="class-selcection-class-text">Class</div>
+    </div>
+    <div class="class-selection-class-container">
+      <div class="class-selcection-class-text">Class</div>
+    </div>
+    <div class="class-selection-class-container">
+      <div class="class-selcection-class-text">Class</div>
+    </div>
+    <div class="class-selection-class-container">
+      <div class="class-selcection-class-text">Class</div>
+    </div>
+  </div>  
 </div>
 
 
 {% endblock %}
 {% block scripts %}
+<script src="{% static 'schedule-builder.js' %}"></script>
 {% endblock %}
