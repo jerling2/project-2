@@ -20,4 +20,6 @@
     }
   }
 </script>
+
+<script src="{% static 'sort-professors.js' %}"></script>
 {% endblock %}
