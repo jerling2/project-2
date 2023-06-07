@@ -98,7 +98,7 @@ class RMPAPICommunicator(Component):
 # This will get executed when this file is imported. If this file is imported
 # for a second time, this will not be executed again.
 rmp_api_communicator = RMPAPICommunicator()
-rmp_api_communicator.set_prof_names(["Hank Childs", "Zena Ariola", "Jee Choi", "Phil Colbert", "Dejing Dou", "Brittany Erickson"])
+rmp_api_communicator.set_prof_names(["Hank Childs", "Zena Ariola", "Jee Choi", "Phil Colbert", "Dejing Dou", "Brittany Erickson", "Lie Jiao", "Joseph McLaughlin", "Boyana Norris", "Juan Flores", "Andrzej Proskurowski", "Eugene Luks", "Kent Stevens", "Virginia Lo", "Dejing Dou", "Jun Li", "John Conery", "David Atkins", "Christopher Wilson", "Kiki Prottsman", "Makseem Skorodinsky"])
 rmp_api_communicator.set_school("University of Oregon")
 rmp_api_communicator.notify('', '')
 
