@@ -71,7 +71,16 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20px 20px;
+
+
+  }
+
+  .up_arrow {
     background-image: url(./up_arrow.png);
+  }
+
+  .down_arrow {
+    background-image: url(./down_arrow.png);
   }
   
   /* This is a 'button' that the user can click that will open a drop down menu */
@@ -83,6 +92,8 @@
     transform: translateY(-50%);
     text-decoration: underline;
   }
+
+
   
   /* This is the search box for the user to use when finding a professor. */
   .sidebar-search-text-input {

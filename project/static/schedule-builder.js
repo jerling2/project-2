@@ -8,6 +8,7 @@ const button_clicks = () => {
     class_buttons.forEach(btn => {
         btn.addEventListener("click", () => {
             let class_name = btn.firstElementChild.innerHTML.split(' ').join('-');
+            // Theres a bug here.
             let classes = document.querySelectorAll(`.${class_name}`);
             classes.forEach(cls => {
                 if (cls.style.display == 'none') {
