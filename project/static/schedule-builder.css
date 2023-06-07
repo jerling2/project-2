@@ -83,7 +83,7 @@ main {
 }
 
 .schedule-builder-class-container {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   margin-left: 10%;
@@ -140,7 +140,7 @@ main {
 }
 
 .class-selection-classes-container {
-  display: none;
+  display: flex;
   flex-direction: column;
   background-color: #CFE4FF;
   border: 4px #1071E5 solid;
