@@ -1,6 +1,25 @@
 const schedule_builder_container = document.querySelector(".schedule-builder-content-container");
 const schedule_builder_overlay =  document.querySelector(".schedule-builder-content-overlay");
+const class_buttons = document.querySelectorAll(".class-selection-class-container");
 const time_text =  document.querySelectorAll(".time-text");
+const classes = document.querySelectorAll(".schedule-builder-class-container");
+
+const button_clicks = () => {
+    class_buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            let class_name = btn.firstElementChild.innerHTML.split(' ').join('-');
+            let classes = document.querySelectorAll(`.${class_name}`);
+            classes.forEach(cls => {
+                if (cls.style.display == 'none') {
+                    cls.style.display = 'flex';
+                } else {
+                    cls.style.display = 'none';
+                }
+            })
+        });
+    });
+}
+
 
 const position_time_text = () => {
     let cell_height = get_cell_height();
@@ -35,4 +54,5 @@ window.addEventListener('resize', () => {
 window.addEventListener('load', () => {
     resize_schedule_builder_overlay();
     position_time_text();
+    button_clicks();
 });
