@@ -1,5 +1,7 @@
 # Things that get generated on launch
 project/templates/professors.html
+project/templates/courses.html
+project/templates/schedule-builder.html
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
