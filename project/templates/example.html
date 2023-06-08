@@ -45,7 +45,12 @@
   </div>
   <div class="schedule-builder-content-container">
     <div class="schedule-builder-content-overlay">
-      <div id="class-1" class="schedule-builder-class-container CS-330">
+      <div class="schedule-builder-class-container 
+      CS-330
+      "style="
+      grid-row: 10 / 56;
+      grid-column: 1 / 1;
+      ">
         <div class="schedule-builder-class-text">
           CS 330
         </div>
@@ -134,8 +139,11 @@
   </div>  
   <div class="class-selection-classes-container">
     <div class="class-selection-class-container">
-      <div class="class-selcection-class-text">CS 315</div>
+      <div class="class-selcection-class-text">
+        CS 315
+      </div>
     </div>
+    
     <div class="class-selection-class-container">
       <div class="class-selcection-class-text">CS 315 LAB</div>
     </div>
@@ -162,8 +170,6 @@
     </div> -->
   </div>  
 </div>
-
-
 {% endblock %}
 {% block scripts %}
 <script src="{% static 'schedule-builder.js' %}"></script>

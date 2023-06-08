@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'schedule-builder.css' %}">
+{% endblock %}
+{% block content %}
+<div class="schedule-builder-container">
+  <div class="schedule-builder-header">
+    <div class="weekday-container">
+      <div class="weekday-text">
+        Monday
+      </div>
+    </div>
+    <div class="weekday-container">
+      <div class="weekday-text">
+        Tuesday
+      </div>
+    </div>
+    <div class="weekday-container">
+      <div class="weekday-text">
+        Wednesday
+      </div>
+    </div>
+    <div class="weekday-container">
+      <div class="weekday-text">
+        Thursday
+      </div>
+    </div>
+    <div class="weekday-container">
+      <div class="weekday-text">
+        Friday
+      </div>
+    </div>
+    <div class="weekday-container">
+      <div class="weekday-text">
+        Saturday
+      </div>
+    </div>
+    <div class="weekday-container">
+      <div class="weekday-text">
+        Sunday
+      </div>
+    </div>
+  </div>
+  <div class="schedule-builder-content-container">
+    <div class="schedule-builder-content-overlay">

@@ -1,0 +1,43 @@
+   </div>
+    <div class="dotted-line">
+      <div class="time-text">8am</div>
+    </div>
+    <div class="dotted-line">
+      <div class="time-text">9am</div>
+    </div>
+    <div class="dotted-line">
+      <div class="time-text">10am</div>
+    </div>
+    <div class="dotted-line">
+      <div class="time-text">11am</div>
+    </div>
+    <div class="dotted-line">
+      <div class="time-text">12am</div>
+    </div>
+    <div class="dotted-line">
+      <div class="time-text">1pm</div>
+    </div>
+    <div class="dotted-line">
+      <div class="time-text">2pm</div>
+    </div>
+    <div class="dotted-line">
+      <div class="time-text">3pm</div>
+    </div>
+    <div class="dotted-line">
+      <div class="time-text">4pm</div>
+    </div>
+    <div class="dotted-line">
+      <div class="time-text">5pm</div>
+    </div>
+    <div class="dotted-line">
+      <div class="time-text">6pm</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="class-selection-container">
+  <div class="class-selection-search-input-container">
+    <input class="class-selection-search-input" placeholder="search">
+  </div>
+  <div class="class-selection-classes-container">

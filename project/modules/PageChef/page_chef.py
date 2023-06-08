@@ -13,7 +13,7 @@ from enum import Enum
 import logging
 import os
 import json
-
+import math
 # ------------------------------- Logger Config ------------------------------ #
 logger = logging.getLogger("project")
 
@@ -37,6 +37,11 @@ class RecipeBook(Enum):
     COURSE_CONTAINER_2 = 'recipes/courses_dynamic_container_2.txt'
     COURSE_CONTAINER_3 = 'recipes/courses_static_container_3.txt'
     COURSE_PAGE_END = 'recipes/courses_static_end.txt'
+    SCHEDULE_PAGE_START = 'recipes/schedule_builder_static_start.txt'
+    SCHEDULE_CONTAINER_1 = 'recipes/schedule_builder_dynamic_container_1.txt'
+    SCHEDULE_PAGE_MIDDLE = 'recipes/schedule_builder_static_middle.txt'
+    SCHEDULE_CONTAINER_2 = 'recipes/schedule_builder_dynamic_container_2.txt'
+    SCHEDULE_PAGE_END = 'recipes/schedule_builder_static_end.txt'
 
 
 # -------------------------------- Page Chef -------------------------------- #
@@ -125,7 +130,7 @@ class PageChef(Component):
             wtas = value.get('wouldTakeAgainPercent')
             prof_data["would_take_again_score"] =  'N/A' if wtas == -1 else str(wtas) + "%"
             # Now that we have the groceries and the recipe, its time to cook!
-            page += self._cook(RecipeBook.PROF_CONTAINER.value, groceries=prof_data)
+            page += self._cook(RecipeBook.PROF_CONTAINER.value, groceries=prof_data) + '\n'
 
         # Step 3: cook the static ending part of the professor's page.       
         page += self._cook(RecipeBook.PROF_PAGE_END.value)
@@ -148,7 +153,7 @@ class PageChef(Component):
 
         for key in sorted_keys:
             c_title = {'course_title': key}
-            page += self._cook(RecipeBook.COURSE_CONTAINER_1.value, groceries=c_title)
+            page += self._cook(RecipeBook.COURSE_CONTAINER_1.value, groceries=c_title) + '\n'
             
             data = courses_data[key]
             professor_length = len(courses_data[key]['professors'])
@@ -159,9 +164,9 @@ class PageChef(Component):
                     prof_data['time'] = "TBA"
                 else:
                     prof_data['time'] = data['schedule'][i] + ' ' + data['time'][i] 
-                page += self._cook(RecipeBook.COURSE_CONTAINER_2.value, groceries=prof_data)
+                page += self._cook(RecipeBook.COURSE_CONTAINER_2.value, groceries=prof_data) + '\n'
 
-            page += self._cook(RecipeBook.COURSE_CONTAINER_3.value)
+            page += self._cook(RecipeBook.COURSE_CONTAINER_3.value) + '\n'
         
         # Step 3: cook the static ending part of the courses' page.       
         page += self._cook(RecipeBook.COURSE_PAGE_END.value)
@@ -169,6 +174,81 @@ class PageChef(Component):
         # Step 4: Write the file to the right path.
         self._write_file('/../../templates/courses.html', page)
         return None
+
+    def update_schedule_page(self, schedule_data: dict):
+        page = ""
+
+        day_dict = {'m': 1, 't': 2, 'w': 3, 'r': 4, 'f': 5}
+
+        # Sort the keys to make a more coherent order.
+        sorted_keys = []
+        for key in schedule_data:
+            sorted_keys.append(key)
+        sorted_keys.sort()
+
+        # Step 1: cook the static beginning part of the schedule's page.
+        page += self._cook(RecipeBook.SCHEDULE_PAGE_START.value)
+        
+        for key in sorted_keys:
+            data = schedule_data[key]
+            professor_length = len(data['professors'])
+                
+            for i in range(professor_length):
+                schedule = data['schedule'][i]
+                # Skip this iteration if schedule does not contain m, t, w, r, or f.
+                if not any(day in schedule for day in ['m', 't', 'w', 'r', 'f']):
+                    continue
+
+                course_name = key[:-3] + " " + key[-3:]
+                css_class_name = key[:-3] + "-" + key[-3:]
+
+                interval = data['time'][i].split('-')
+                start = int(interval[0])
+                end = int(interval[1])
+                
+                # this is an algorithim that transforms military time into a position
+                # on the grid. I made it through trial and error, so I'm not exactly
+                # sure on how it works.
+                row_start = math.ceil((start-(math.floor((start-700)/100)*40)-699)/5)
+                row_end = math.ceil((end-(math.floor((end-700)/100)*40)-699)/5)
+
+                grid_row = f'grid-row: {row_start} / {row_end};'
+                for day in schedule:
+                    col = day_dict[day]
+                    grid_col = f'grid-column: {col} / {col};'
+
+                    container_1_data = {
+                        'grid_row': grid_row, 
+                        'grid_col': grid_col, 
+                        'course_name': course_name,
+                        'css_class_name': css_class_name
+                    }
+                  
+                    page += self._cook(RecipeBook.SCHEDULE_CONTAINER_1.value,
+                                       groceries=container_1_data) + '\n'
+
+
+        # Step 3: cook the static middle part of the schedule's page.       
+        page += self._cook(RecipeBook.SCHEDULE_PAGE_MIDDLE.value) + '\n'
+
+        # Step 4: cook the dynamic container 2 part of the schedule's page. 
+        for key in sorted_keys:
+            data = schedule_data[key]
+            schedule = data['schedule'][0]
+            if not any(day in schedule for day in ['m', 't', 'w', 'r', 'f']):
+                    continue
+            course_name = key[:-3] + " " + key[-3:]
+            container_2_data = {'course_name': course_name}
+            page += self._cook(RecipeBook.SCHEDULE_CONTAINER_2.value,
+                                groceries=container_2_data) + '\n'
+
+        # Step 5: cook the static ending part of the schedule's page. 
+        page += self._cook(RecipeBook.SCHEDULE_PAGE_END.value)
+
+        # Step 4: Write the file to the right path.
+        self._write_file('/../../templates/schedule_builder.html', page)
+        return None
+
 
     def notify(self, topic: str, message: object):
         """ Do something when this component recieves a message. """
@@ -180,6 +260,7 @@ class PageChef(Component):
         elif topic == "db data":
             data = json.loads(message)
             self.update_courses_page(data)
+            self.update_schedule_page(data)
                 
 
 
