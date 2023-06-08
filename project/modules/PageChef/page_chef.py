@@ -152,7 +152,8 @@ class PageChef(Component):
         
 
         for key in sorted_keys:
-            c_title = {'course_title': key}
+            course_title = key[:-3] + " " + key[-3:]
+            c_title = {'course_title': course_title}
             page += self._cook(RecipeBook.COURSE_CONTAINER_1.value, groceries=c_title) + '\n'
             
             data = courses_data[key]
