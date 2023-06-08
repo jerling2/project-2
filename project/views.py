@@ -4,11 +4,7 @@ from django.http import JsonResponse
 from django.core.cache import cache
 
 import project.modules.PageChef.page_chef
-<<<<<<< HEAD
 import project.modules.RMPAPICommunicator.rmp_api_communicator
-=======
-# import project.modules.RMPAPICommunicator.rmp_api_communicator
->>>>>>> joseph
 import project.modules.CourseDBCommunicator.courses_db_communicator
 
 
