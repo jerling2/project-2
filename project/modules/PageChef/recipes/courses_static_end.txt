@@ -20,4 +20,5 @@ function search() {
 </script>
 
 <script src="{% static 'sort-courses.js' %}"></script>
+<script src="{% static 'courses.js' %}"></script>
 {% endblock %}

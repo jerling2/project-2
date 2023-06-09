@@ -1,4 +1,9 @@
-<!--TODO: Add links to courses-->
+<!--
+  File: base.html
+  Description: html for degree requirements page.
+  Creation Date: 5/23/23
+  Author(s): Sterling
+-->
 
 <!DOCTYPE html>
 {% extends 'base.html' %}
@@ -10,9 +15,9 @@
 {% endblock %}
 
 {% block content %}
-<h1>Degree Requirements Flowchart</h1>
+<h1>Degree Requirements</h1>
 <div class="flowchart">
-  <div class="node" id="math-112" onclick="location.href=`{% url 'courses' %}`">Math 112</div>
+  <div class="node" id="math-112" text-data="MATH 112" onclick="redirect(this)">Math 112</div>
   <div class="flowchart-vertical-split" id="math-112-split">
     <svg id="math-112-split-svg" xmlns="http://www.w3.org/2000/svg"> <!-- Increase the height here -->
       <defs>
@@ -23,10 +28,10 @@
       <line x1="50%" y1="30%" x2="50%" y2="50%" stroke="black" /> <!-- Down -->
       <line x1="50%" y1="50%" x2="0.3125%" y2="50%" stroke="black" /> <!-- Left -->
       <line x1="50%" y1="50%" x2="98.75%" y2="50%" stroke="black" /> <!-- Right -->
-      <line x1="0.3125%" y1="50%" x2="0.3125%" y2="94%" stroke="black" marker-end="url(#arrowhead)" /> <!-- Down Arrow 1 -->
+      <line x1="0.3125%" y1="50%" x2="0.3125%" y2="90%" stroke="black" marker-end="url(#arrowhead)" /> <!-- Down Arrow 1 -->
       <line x1="43.125%" y1="50%" x2="43.125%" y2="66%" stroke="black" marker-end="url(#arrowhead)" /> <!-- Down Arrow 2 -->
-      <line x1="75.3125%" y1="50%" x2="75.3125%" y2="94%" stroke="black" marker-end="url(#arrowhead)" /> <!-- Down Arrow 3 -->
-      <line x1="98.75%" y1="50%" x2="98.75%" y2="94%" stroke="black" marker-end="url(#arrowhead)" /> <!-- Down Arrow 4 -->
+      <line x1="75.3125%" y1="50%" x2="75.3125%" y2="90%" stroke="black" marker-end="url(#arrowhead)" /> <!-- Down Arrow 3 -->
+      <line x1="98.75%" y1="50%" x2="98.75%" y2="90%" stroke="black" marker-end="url(#arrowhead)" /> <!-- Down Arrow 4 -->
     </svg>
   </div>
 
@@ -38,7 +43,7 @@
           <div class="flowchart-horizontal" id="IntroCS">
             <h2 class="sequence-title">Intro to Computer Science</h2>
             <div class="sequence-content">
-              <div class="node" id="cs-210" onclick="location.href=`{% url 'courses' %}`">CS 210</div>
+              <div class="node" id="cs-210" text-data="CS 210" onclick="redirect(this)">CS 210</div>
               <svg id="cs-210-arrow">
                 <defs>
                   <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
@@ -47,7 +52,7 @@
                 </defs>
                 <line x1="0%" y1="50%" x2="80%" y2="50%" stroke="black" marker-end="url(#arrowhead)" />
               </svg>
-              <div class="node" id="cs-211" onclick="location.href=`{% url 'courses' %}`">CS 211</div>
+              <div class="node" id="cs-211" text-data="CS 211" onclick="redirect(this)">CS 211</div>
               <svg id="cs-211-arrow">
                 <defs>
                   <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
@@ -56,12 +61,12 @@
                 </defs>
                 <line x1="0%" y1="50%" x2="80%" y2="50%" stroke="black" marker-end="url(#arrowhead)" />
               </svg>
-              <div class="node" id="cs-212" onclick="location.href=`{% url 'courses' %}`">CS 212</div>
+              <div class="node" id="cs-212" text-data="CS 212" onclick="redirect(this)">CS 212</div>
             </div>
           </div>
         </div>
         <div class="flowchart-column" id="low-div-math">
-          <div class="node" id="math-231" onclick="location.href=`{% url 'courses' %}`">Math 231</div>
+          <div class="node" id="math-231" text-data="MATH 231" onclick="redirect(this)">Math 231</div>
           <svg id="math-231-arrow">
             <defs>
               <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
@@ -70,7 +75,7 @@
             </defs>
             <line x1="50%" y1="0%" x2="50%" y2="80%" stroke="black" marker-end="url(#arrowhead)" />
           </svg>
-          <div class="node" id="math-232" onclick="location.href=`{% url 'courses' %}`">Math 232</div>
+          <div class="node" id="math-232" text-data="MATH 232" onclick="redirect(this)">Math 232</div>
         </div>
       </div>
       <div class="flowchart-vertical-split" id="cs-212-split">
@@ -90,7 +95,7 @@
 
       <div class="flowchart-columns">
         <div class="flowchart-column">
-          <div class="node" id="cs-313" onclick="location.href=`{% url 'courses' %}`">CS 313</div>
+          <div class="node" id="cs-313" text-data="CS 313" onclick="redirect(this)">CS 313</div>
           <div class="flowchart-vertical-split" id="cs-313-split">
             <svg id="cs-313-split-svg" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -107,7 +112,7 @@
           </div>
           <div class="flowchart-columns">
             <div class="flowchart-column" id="column-315">
-              <div class="node" id="cs-315" onclick="location.href=`{% url 'courses' %}`">CS 315</div>
+              <div class="node" id="cs-315" text-data="CS 315" onclick="redirect(this)">CS 315</div>
               <svg id="cs-315-arrow">
                 <defs>
                   <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
@@ -116,15 +121,15 @@
                 </defs>
                 <line x1="50%" y1="0%" x2="50%" y2="80%" stroke="black" marker-end="url(#arrowhead)" />
               </svg>
-              <div class="node" id="cs-425" onclick="location.href=`{% url 'courses' %}`">CS 425</div>
+              <div class="node" id="cs-425" text-data="CS 425" onclick="redirect(this)">CS 425</div>
             </div>
             <div class="flowchart-column" id="column-422">
-              <div class="node" id="cs-422" onclick="location.href=`{% url 'courses' %}`">CS 422</div>
+              <div class="node" id="cs-422" text-data="CS 422" onclick="redirect(this)">CS 422</div>
             </div>
           </div>
         </div>
         <div class="flowchart-column" id="column-314">
-          <div class="node" id="cs-314" onclick="location.href=`{% url 'courses' %}`">CS 314</div>
+          <div class="node" id="cs-314" text-data="CS 314" onclick="redirect(this)">CS 314</div>
           <svg id="cs-314-arrow">
             <defs>
               <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
@@ -133,7 +138,7 @@
             </defs>
             <line x1="50%" y1="0%" x2="50%" y2="80%" stroke="black" marker-end="url(#arrowhead)" />
           </svg>
-          <div class="node" id="cs-330" onclick="location.href=`{% url 'courses' %}`">CS 330</div>
+          <div class="node" id="cs-330" text-data="CS 330" onclick="redirect(this)">CS 330</div>
           <svg id="cs-330-arrow">
             <defs>
               <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
@@ -142,15 +147,15 @@
             </defs>
             <line x1="50%" y1="0%" x2="50%" y2="80%" stroke="black" marker-end="url(#arrowhead)" />
           </svg>
-          <div class="node" id="cs-415" onclick="location.href=`{% url 'courses' %}`">CS 415</div>
+          <div class="node" id="cs-415" text-data="CS 415" onclick="redirect(this)">CS 415</div>
         </div>
       </div>
       <div class="flowchart-horizontal" id="writing">
         <h2 class="sequence-title">Writing Requirement</h2>
         <div class="sequence-content">
-          <div class="node" id="wr-320" onclick="location.href=`{% url 'courses' %}`">WR 320</div>
+          <div class="node" id="wr-320" text-data="WR 320" onclick="redirect(this)">WR 320</div>
           <h2 id="writing-or">OR</h2>
-          <div class="node" id="wr-321" onclick="location.href=`{% url 'courses' %}`">WR 321</div>
+          <div class="node" id="wr-321" text-data="WR 321" onclick="redirect(this)">WR 321</div>
         </div>
       </div>
     </div>
@@ -162,7 +167,7 @@
         <div class="sequence-content">
           <div class="flowchart-columns">
             <div class="flowchart-column">
-              <div class="node" id="math-251" onclick="location.href=`{% url 'courses' %}`">Math 251</div>
+              <div class="node" id="math-251" text-data="MATH 251" onclick="redirect(this)">Math 251</div>
               <svg id="math-251-arrow">
                 <defs>
                   <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
@@ -171,13 +176,13 @@
                 </defs>
                 <line x1="50%" y1="0%" x2="50%" y2="80%" stroke="black" marker-end="url(#arrowhead)" />
               </svg>
-              <div class="node" id="math-252" onclick="location.href=`{% url 'courses' %}`">Math 252</div>
+              <div class="node" id="math-252" text-data="MATH 252" onclick="redirect(this)">Math 252</div>
             </div>
             <div class="flowchart-column column-text">
               <h2>OR</h2>
             </div>
             <div class="flowchart-column">
-              <div class="node" id="math-246" onclick="location.href=`{% url 'courses' %}`">Math 246</div>
+              <div class="node" id="math-246" text-data="MATH 246" onclick="redirect(this)">Math 246</div>
               <svg id="math-246-arrow">
                 <defs>
                   <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
@@ -186,13 +191,13 @@
                 </defs>
                 <line x1="50%" y1="0%" x2="50%" y2="80%" stroke="black" marker-end="url(#arrowhead)" />
               </svg>
-              <div class="node" id="math-247" onclick="location.href=`{% url 'courses' %}`">Math 247</div>
+              <div class="node" id="math-247" text-data="MATH 247" onclick="redirect(this)">Math 247</div>
             </div>
             <div class="flowchart-column column-text">
               <h2>OR</h2>
             </div>
             <div class="flowchart-column">
-              <div class="node" id="math-261" onclick="location.href=`{% url 'courses' %}`">Math 261</div>
+              <div class="node" id="math-261" text-data="MATH 261" onclick="redirect(this)">Math 261</div>
               <svg id="math-261-arrow">
                 <defs>
                   <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
@@ -201,7 +206,7 @@
                 </defs>
                 <line x1="50%" y1="0%" x2="50%" y2="80%" stroke="black" marker-end="url(#arrowhead)" />
               </svg>
-              <div class="node" id="math-262" onclick="location.href=`{% url 'courses' %}`">Math 262</div>
+              <div class="node" id="math-262" text-data="MATH 262" onclick="redirect(this)">Math 262</div>
             </div>
           </div>
         </div>
@@ -227,12 +232,12 @@
         <div class="sequence-content">
           <div class="flowchart-columns">
             <div class="flowchart-column" id="column-343">
-              <div class="node" id="math-343" onclick="location.href=`{% url 'courses' %}`">Math 343</div>
+              <div class="node" id="math-343" text-data="MATH 343" onclick="redirect(this)">Math 343</div>
               <h3 id="math-343-or">OR</h3>
-              <div class="node" id="math-425" onclick="location.href=`{% url 'courses' %}`">Math 425</div>
+              <div class="node" id="math-425" text-data="MATH 425" onclick="redirect(this)">Math 425</div>
             </div>
             <div class="flowchart-column" id="column-341">
-              <div class="node" id="math-341" onclick="location.href=`{% url 'courses' %}`">Math 341</div>
+              <div class="node" id="math-341" text-data="MATH 341" onclick="redirect(this)">Math 341</div>
               <svg id="math-341-arrow">
                 <defs>
                   <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
@@ -241,10 +246,10 @@
                 </defs>
                 <line x1="50%" y1="0%" x2="50%" y2="86.666%" stroke="black" marker-end="url(#arrowhead)" />
               </svg>
-              <div class="node" id="math-391" onclick="location.href=`{% url 'courses' %}`">Math 391</div>
+              <div class="node" id="math-391" text-data="MATH 391" onclick="redirect(this)">Math 391</div>
             </div>
             <div class="flowchart-column" id="column-253">
-              <div class="node" id="math-253" onclick="location.href=`{% url 'courses' %}`">Math 253</div>
+              <div class="node" id="math-253" text-data="MATH 253" onclick="redirect(this)">Math 253</div>
               <div class="node" id="upper-div-math-or"><h4>OR</h4></div>
               <svg id="math-253-split">
                 <defs>
@@ -255,10 +260,10 @@
                 <line x1="50%" y1="55%" x2="99.2683%" y2="55%" stroke="black"/>
                 <line x1="50%" y1="36%" x2="50%" y2="68.5%" stroke="black" marker-end="url(#arrowhead)" />
               </svg>
-              <div class="node" id="math-247" onclick="location.href=`{% url 'courses' %}`">Math 247</div>
+              <div class="node" id="math-247" text-data="MATH 247" onclick="redirect(this)">Math 247</div>
             </div>
             <div class="flowchart-column">
-              <div class="node" id="math-263" onclick="location.href=`{% url 'courses' %}`">Math 263</div>
+              <div class="node" id="math-263" text-data="MATH 263" onclick="redirect(this)">Math 263</div>
               <svg id="math-263-arrow">
                 <defs>
                   <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
@@ -267,7 +272,7 @@
                 </defs>
                 <line x1="50%" y1="49.33%" x2="50%" y2="86.67%" stroke="black" marker-end="url(#arrowhead)" />
               </svg>
-              <div class="node" id="math-351" onclick="location.href=`{% url 'courses' %}`">Math 351</div>
+              <div class="node" id="math-351" text-data="MATH 351" onclick="redirect(this)">Math 351</div>
             </div>
           </div>
         </div>
@@ -289,4 +294,5 @@
     console.error(err);
   });
 </script>
+<script src="{% static 'degreereqs.js' %}"></script>
 {% endblock %}

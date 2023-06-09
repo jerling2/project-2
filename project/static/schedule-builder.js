@@ -1,3 +1,10 @@
+/*
+File: schedule-builder.js
+Description: scripting for the schedule builder page.
+Creation Date: 6/7/23
+Author(s): Joseph
+*/
+
 const schedule_builder_container = document.querySelector(".schedule-builder-content-container");
 const schedule_builder_overlay =  document.querySelector(".schedule-builder-content-overlay");
 const class_selection_container = document.querySelector(".class-selection-classes-container");
