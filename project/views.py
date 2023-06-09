@@ -1,3 +1,10 @@
+"""
+File: views.py
+Description: Django views for handling each webpage.
+Creation Date: 5/22/23
+Author: Sterling, Ryan, Joseph
+"""
+
 from django.shortcuts import render
 from project.modules.RMPUser import create_dict_profs
 from django.http import JsonResponse
