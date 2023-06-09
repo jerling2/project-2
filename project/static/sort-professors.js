@@ -1,4 +1,11 @@
-  function sortByName() {
+/*
+File: sort-professors.js
+Description: scripting for sorting the professors on the professors page.
+Creation Date: 6/7/23
+Author(s): Ryan
+*/
+
+function sortByName() {
     console.log("Sorting professors by name");
     // Get the sidebar sort button element
     var sortButton = document.querySelector('.sidebar-sort-by-button-input');
