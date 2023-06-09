@@ -1,0 +1,5 @@
+    <div class="class-selection-class-container">
+      <div class="class-selcection-class-text">
+!variable course_name
+      </div>
+    </div>

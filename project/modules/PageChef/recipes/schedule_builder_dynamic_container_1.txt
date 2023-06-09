@@ -1,0 +1,10 @@
+      <div class="schedule-builder-class-container 
+!variable css_class_name
+      "style="
+!variable grid_row
+!variable grid_col   
+      ">
+        <div class="schedule-builder-class-text">
+!variable course_name
+        </div>
+      </div>
