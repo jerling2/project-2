@@ -1,0 +1,6 @@
+  </div>  
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'schedule-builder.js' %}"></script>
+{% endblock %}
