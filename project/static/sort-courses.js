@@ -1,3 +1,10 @@
+/*
+File: sort-courses.js
+Description: scripting for sorting the courses on the courses page.
+Creation Date: 6/7/23
+Author(s): Ryan
+*/
+
 const sidebar = document.querySelector('.sidebar-sort-by-order-input');
 sidebar.classList.add('up_arrow');  //< courses list starts out sorted from A-Z
 
