@@ -1,38 +1,36 @@
 # ------------------------------ Module Imports ------------------------------ #
-from ..GrandExchange.grand_exchange import Component
-import logging
-import os
-import json
-import sqlite3
+from ..GrandExchange.grand_exchange import Component  # Importing Component class from grand_exchange module
+import logging  # Importing logging module for logging purposes
+import os  # Importing os module for file path operations
+import json  # Importing json module for JSON manipulation
+import sqlite3  # Importing sqlite3 module for SQLite database operations
 
 # ------------------------------- Logger Config ------------------------------ #
-logger = logging.getLogger("project")
-logger.setLevel(logging.INFO)
-
+logger = logging.getLogger("project")  # Creating a logger instance with the name "project"
+logger.setLevel(logging.INFO)  # Setting the logging level to INFO
 
 # --------------------------- Listening on Channels -------------------------- #
-DB_IN_CHANNELS = ["interval cycle"]
-
+DB_IN_CHANNELS = ["interval cycle"]  # List of channels to listen for incoming messages
 
 # --------------------------- Publishing to Channels ------------------------- #
-DB_OUT_CHANNELS = ["db data"]
+DB_OUT_CHANNELS = ["db data"]  # List of channels to publish outgoing messages
 
 # --------------------------- RMP API Communicator --------------------------- #
 
 
-logger = logging.getLogger("project")
-logger.setLevel(logging.INFO)
+logger = logging.getLogger("project")  # Creating another logger instance with the name "project"
+logger.setLevel(logging.INFO)  # Setting the logging level to INFO
 
 class CoursesDBCommunicator(Component):
     def __init__(self):
-        super().__init__()
-        self.subscribe_to_channels()
-        logger.info("Courses DB Communicator initalized!")
+        super().__init__()  # Calling the constructor of the parent class
+        self.subscribe_to_channels()  # Subscribing to the specified channels
+        logger.info("Courses DB Communicator initialized!")  # Logging an informational message
 
     def subscribe_to_channels(self):
         """ This is called upon initialization """
         for channel in DB_IN_CHANNELS:
-            self.subscribe(channel)
+            self.subscribe(channel)  # Subscribing to the specified channel
 
     def getDatabasePath(self) -> str:
         # Get the absolute path of the current file
@@ -48,6 +46,7 @@ class CoursesDBCommunicator(Component):
         database_path = os.path.join(three_directories_up, "db.sqlite3")
 
         return database_path
+
     def jsonify(self, data: list) -> json:
         """
         Converts course list data from SQLite connector into a json object
